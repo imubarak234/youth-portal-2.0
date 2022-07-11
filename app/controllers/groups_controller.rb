@@ -30,8 +30,13 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @group_edit = Group.find(params[:id])
   end
 
   def update
+    @group_edit = Group.find(params[:id])
+    @group_edit.update(year_of_establishment: params[:group][:year_of_establishment], nature_of_support_group: params[:group][:nature_of_support_group], mode_of_funding: params[:group][:mode_of_funding], constitution_of_group: params[:group][:constitution_of_group], state: params[:group][:state], recommendation: params[:group][:recommendation], guarantor: params[:group][:guarantor], lga: params[:group][:lga], address: params[:group][:address], active_region: params[:group][:active_region], number_of_members: params[:group][:number_of_members])
+    flash[:notice] = "Updated"
+    redirect_to groups_path
   end
 end
