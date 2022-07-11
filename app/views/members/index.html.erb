@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Youth Portal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <% if @member != nil %>
+      
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Email@</th>
+              <th scope="col">Member Role</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Active Region</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @member.each_with_index do |n, idx| %>
+              <tr>
+                <th scope="row"><%= idx + 1 %></th>
+                <td><%= n.full_name %></td>
+                <td><%= n.email %></td>
+                <td><%= n.member_role %></td>
+                <td><%= n.phone_number %></td>
+                <td><%= n.active_region %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      
+    <% end %>
+  </body>
+  
+</html>
