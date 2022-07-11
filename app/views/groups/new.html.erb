@@ -1,82 +1,137 @@
-<%= form_with model: @group_new, url: groups_path, method: :post, class: "h-100 border d-flex flex-column justify-content-between", local: true, scope: :groups do |f|  %>
+<%= form_with model: @group_new, url: groups_path, method: :post, class: "needs-validation h-100 border d-flex flex-column justify-content-between", novalidate: true, local: true, scope: :groups do |f|  %>
 
       <div class="h-50 d-flex flex-column justify-content-around">
-        <div class = "form-group">
-          <%= f.label :name, for: "names" %><br>
-          <%= f.text_field :name, class: "form-control", id: "names"%>
-        </div>
-
-        <div class="d-flex justify-content-evenly my-3">
-          <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-award-fill', class: "form-check-input" %>
-            <label class="form-check-label">
-              <i class="bi bi-award-fill" style="font-size: 3em;"></i>
-            </label>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-bank', class: "form-check-input" %>
-            <label class="form-check-label">
-              <i class="bi bi-bank" style="font-size: 3em;"></i>
-            </label>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-calendar-check', class: "form-check-input" %>
-            <label class="form-check-label">
-              <i class="bi bi-calendar-check" style="font-size: 3em;"></i>
-            </label>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-book-half', class: "form-check-input" %>
-            <label class="form-check-label">
-              <i class="bi bi-book-half" style="font-size: 3em;"></i>
-            </label>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-camera', class: "form-check-input" %>
-            <label class="form-check-label">
-              <i class="bi bi-camera" style="font-size: 3em;"></i>
-            </label>
+        <div class="field">
+          <div class = "input-group has-validation">
+            <%= f.label :Year_Of_Establishment, for: "years" %><br>
+            <%= f.number_field :year_of_establishment, class: "form-control", required: true, id: "years"%>
+            <div class="invalid-feedback">
+              Please Enter Year.
+            </div>
           </div>
         </div>
 
-        <div class="d-flex justify-content-evenly my-3">
+        <div class="field">
+          <div class="input-group has-validation">
+            <%= f.label :Nature_Of_Support_Group, for: "nature_group" %>
+            <%= f.select :nature_of_support_group, ['Candidate Based Support Group', 'Party Based Support Group'], { class: "form-control", id: "nature_group" }%>
+          </div> 
+        </div>
+
+        <div class="field">
+          <div class="input-group has-validation">
+            <%= f.label :Mode_OF_Funding, for: "funding_mode" %>
+            <%= f.select :mode_of_funding, ['Outside Donors', 'Individual Sponsorship', 'Membership Dues','Others'], { class: "form-control", id: "funding_mode" }%>
+          </div> 
+        </div>
+
+        <div class="field">
+          <div class = "input-group">
+            <%= f.label :Constitution_OF_Group, for: "constitution" %><br>
+            <%= f.text_field :constitution_of_group, class: "form-control", id: "constitution"%>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class = "input-group has-validation">
+            <%= f.label :State, for: "state" %><br>
+            <%= f.text_field :state, class: "form-control", required: true, id: "state"%>
+            <div class="invalid-feedback">
+              Please Enter State.
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class = "input-group">
+            <%= f.label :Recommendation, for: "recommend" %><br>
+            <%= f.text_field :recommendation, class: "form-control", id: "recommend"%>
+          </div>
+        </div>
+        
+        <div class="field">
+          <div class = "input-group">
+            <%= f.label :Guarantor, for: "grant" %><br>
+            <%= f.text_field :guarantor, class: "form-control", id: "grant"%>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class = "input-group has-validation">
+            <%= f.label :Local_Government_Area, for: "lga" %><br>
+            <%= f.text_field :lga, class: "form-control", required: true, id: "lga"%>
+            <div class="invalid-feedback">
+              Please Enter LGA.
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class = "input-group has-validation">
+            <%= f.label :Address, for: "address" %><br>
+            <%= f.text_field :address, class: "form-control", required: true, id: "address"%>
+            <div class="invalid-feedback">
+              Please Enter Address.
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-evenly my-3">
+        <p>Active Region</p>
           <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-cart-check', class: "form-check-input" %>
+            <%= f.radio_button :active_region, 'North-West', class: "form-check-input" %>
             <label class="form-check-label">
-              <i class="bi bi-cart-check" style="font-size: 3em;"></i>
+              North-West
             </label>
           </div>
           <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-cloud-moon', class: "form-check-input" %>
+            <%= f.radio_button :active_region, 'North-East', class: "form-check-input" %>
             <label class="form-check-label">
-              <i class="bi bi-cloud-moon" style="font-size: 3em;"></i>
+              North-East
             </label>
           </div>
           <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-coin', class: "form-check-input" %>
+            <%= f.radio_button :active_region, 'North-Central', class: "form-check-input" %>
             <label class="form-check-label">
-              <i class="bi bi-coin" style="font-size: 3em;"></i>
+              North-Central
             </label>
           </div>
           <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-controller', class: "form-check-input" %>
+            <%= f.radio_button :active_region, 'South-West', class: "form-check-input" %>
             <label class="form-check-label">
-              <i class="bi bi-controller" style="font-size: 3em;"></i>
+              South-West
             </label>
           </div>
           <div class="form-check">
-            <%= f.radio_button :icon, 'bi bi-file-earmark-person-fill', class: "form-check-input" %>
+            <%= f.radio_button :active_region, 'South-East', class: "form-check-input" %>
             <label class="form-check-label">
-              <i class="bi bi-file-earmark-person-fill" style="font-size: 3em;"></i>
+              South-East
+            </label>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :active_region, 'South-South', class: "form-check-input" %>
+            <label class="form-check-label">
+              South-South
             </label>
           </div>
         </div>
+
+        <div class="field">
+          <div class = "input-group has-validation">
+            <%= f.label :Number_Of_Members, for: "members" %><br>
+            <%= f.number_field :number_of_members, class: "form-control", required: true, id: "members"%>
+            <div class="invalid-feedback">
+              Please Enter Number of Members.
+            </div>
+          </div>
+        </div>
+        
       </div>
       
 
 
       <div class="d-flex flex-column links_foot_cat align-items-center w-100 p-3 border">
-        <%= f.submit "Save", class: "p-2 lead text-decoration-none text-light text-center border"%>
+        <%= f.submit "Save", class: "p-2 lead text-decoration-none btn text-center border"%>
       </div>
       
     <% end %>

@@ -1,10 +1,8 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @group = Group.find_by(user: current_user)
+    @group = Group.find_by(user_id: current_user.id)
     @user = current_user
-    puts "I'm here"
-    puts @group
   end
 
   def new
@@ -25,7 +23,8 @@ class GroupsController < ApplicationController
           redirect_to groups_path
         else
           flash[:notice] = 'Error: Group was not created'
-        ender :new, locals: { groups: @group_new }
+          render :new, locals: { groups: @group_new }
+        end
       end
     end
   end

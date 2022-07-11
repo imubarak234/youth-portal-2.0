@@ -3,8 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   has_many :members
-  has_one :groups
+  has_many :groups
 
   validates :name, presence: true, length: { minimum: 3, maximum: 100 }
   validates :email, presence: true
