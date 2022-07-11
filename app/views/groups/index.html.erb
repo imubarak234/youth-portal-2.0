@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YouthPortal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= yield %>
+    
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Group Information</th>
+          <th scope="col">First</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Group Name</th>
+          <td><%= @user.name%></td> 
+        </tr>
+        <tr>
+          <th scope="row">Email Address</th>
+          <td><%= @user.email%></td>
+        </tr>
+        <tr>
+          <th scope="row">Year of Establishment</th>
+          <td><%= @group.year_of_establishment %></td>
+        </tr>
+        <tr>
+          <th scope="row">Nature of Support Group</th>
+          <td><%= @group.nature_of_support_group %></td>
+        </tr>
+        <tr>
+          <th scope="row">Mode of Funding</th>
+          <td><%= @group.mode_of_funding %></td>
+        </tr>
+        <tr>
+          <th scope="row">Acive Region</th>
+          <td><%= @group.active_region %></td>
+        </tr>
+        <tr>
+          <th scope="row">Strength of group(In figures)</th>
+          <td><%= @group.number_of_members %></td>
+        </tr>
+        <tr>
+          <th scope="row">Nature of Support Group</th>
+          <td><%= @group.nature_of_support_group %></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="/" class="btn btn-secondary">Update</a>
+  </body>
+</html>
