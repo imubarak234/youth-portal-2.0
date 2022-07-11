@@ -28,4 +28,10 @@ class GroupsController < ApplicationController
       end
     end
   end
+
+  def edit
+  end
+
+  def update
+  end
 end

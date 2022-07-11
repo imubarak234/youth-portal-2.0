@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'dashboard#index'
 
+  get '/review', to: 'review#index'
+
   resources :users, only: [:index, :new, :create, :show]
-  resources :members, only: [:index, :new, :create, :show]
-  resources :groups, only: [:index, :new, :create, :show]
-end
+  resources :members
+  resources :groups
