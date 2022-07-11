@@ -31,27 +31,63 @@
         </tr>
         <tr>
           <th scope="row">Year of Establishment</th>
-          <td><%= @group.year_of_establishment %></td>
+          <td>
+              <% if @group != nil%>
+                <%= @group.year_of_establishment %>
+              <% else %>
+                ...
+              <% end %>
+          </td>
         </tr>
         <tr>
           <th scope="row">Nature of Support Group</th>
-          <td><%= @group.nature_of_support_group %></td>
+          <td>
+              <% if @group != nil%>
+                <%= @group.nature_of_support_group %>
+              <% else %>
+                ...
+              <% end %>
+          </td>
         </tr>
         <tr>
           <th scope="row">Mode of Funding</th>
-          <td><%= @group.mode_of_funding %></td>
+          <td>
+              <% if @group != nil%>
+                <%= @group.mode_of_funding %>
+              <% else %>
+                ...
+              <% end %>
+          </td>
         </tr>
         <tr>
           <th scope="row">Acive Region</th>
-          <td><%= @group.active_region %></td>
+          <td>
+              <% if @group != nil%>
+                <%= @group.active_region %>
+              <% else %>
+                ...
+              <% end %>
+          </td>
         </tr>
         <tr>
           <th scope="row">Strength of group(In figures)</th>
-          <td><%= @group.number_of_members %></td>
+          <td>
+              <% if @group != nil%>
+                <%= @group.number_of_members %>
+              <% else %>
+                ...
+              <% end %>
+          </td>
         </tr>
         <tr>
           <th scope="row">Nature of Support Group</th>
-          <td><%= @group.nature_of_support_group %></td>
+          <td>
+              <% if @group != nil%>
+                <%= @group.nature_of_support_group %>
+              <% else %>
+                ...
+              <% end %>
+          </td>
         </tr>
       </tbody>
     </table>
