@@ -14,7 +14,7 @@
   <body>
     <%= yield %>
     
-    <%= form_with model: @member_new, url: members_path, method: :post, class: "h-100 border d-flex flex-column justify-content-between", novalidate: true, local: true, scope: :groups do |f|  %>
+    <%= form_with model: @member_new, url: members_path, method: :post, class: "h-100 border d-flex flex-column justify-content-between", novalidate: true, local: true, scope: :members do |f|  %>
 
       <div class="h-50 d-flex flex-column justify-content-around">
         <div class="field">
@@ -30,7 +30,7 @@
         <div class="field">
           <div class="input-group has-validation">
             <%= f.label :Member_Role, for: "role" %>
-            <%= f.select :nature_of_support_group, ['Chairman', 'Vice Chairman', 'General Secretary', 'Legal Advidor', 'Other'], { class: "form-control", id: "role" }%>
+            <%= f.select :member_role, ['Chairman', 'Vice Chairman', 'General Secretary', 'Legal Advidor', 'Other'], { class: "form-control", id: "role" }%>
           </div> 
         </div>
 
