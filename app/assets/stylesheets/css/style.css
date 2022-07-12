@@ -1401,7 +1401,7 @@ Index 01 Banner Area CSS
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/banner/banner-1-bg.jpg");
+  background-image: url("../images/banner-1-bg.jpg");
   position: absolute;
   top: 0;
   right: 0;
@@ -1637,7 +1637,7 @@ Index 01 Fun Facts Area CSS
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/service/pexels-emmanuel-ikwuegbu-8445454.jpg");
+  background-image: url("../images/pexels-emmanuel-ikwuegbu-8445454.jpg");
 }
 .fun-facts-1::before {
   content: "";
@@ -1825,7 +1825,7 @@ Index 01 Explore Events Area CSS
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/why-we/ww2.jpg");
+  background-image: url("../images/ww2.jpg");
   height: 100%;
 }
 .explore-events-img img {
