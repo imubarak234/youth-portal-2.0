@@ -15,3 +15,7 @@
 //= link css/style.css
 //= link css/responsive.css
 //= link fonts/flaticon.css
+//= link css_dashboard/lib/owlcarousel/assets/owl.carousel.min.css
+//= link css_dashboard/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css
+//= link css_dashboard/bootstrap.min.css
+//= link css_dashboard/style.css
