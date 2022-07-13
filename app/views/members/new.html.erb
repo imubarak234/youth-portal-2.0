@@ -61,10 +61,10 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/dashboard" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="/groups" class="nav-link"><i class="fa fa-laptop me-2"></i>Details</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Documents</a>
-                    <a href="/members" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Members</a>
+                    <a href="/members" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Members</a>
                     <a href="/review" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Review</a>
                 </div>
             </nav>
@@ -95,7 +95,11 @@
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <% if user_signed_in? %>
+                              <%= link_to "Sign out", destroy_user_session_path, class: 'dropdown-item', 'data-turbo-method': :delete %>
+                            <% else %>
+                              <a href="users/sign_in" class="dropdown-item">Sign in</a>
+                            <% end %> 
                         </div>
                     </div>
                 </div>
@@ -103,229 +107,103 @@
             <!-- Navbar End -->
 
 
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Sale & Revenue End -->
+            
 
-
-            <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Salse</h6>
-                        <a href="">Show All</a>
+                        <h6 class="mb-0">Create a new group</h6>
+                        <nav aria-label="breadcrumb">
+                          <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/members">Members</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">New Member</li>
+                          </ol>
+                        </nav>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-white">
-                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Invoice</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- Recent Sales End -->
+                    <div class="table-responsie">
+                        <%= form_with model: @member_new, url: members_path, method: :post, local: true, scope: :members, html: {class: "text-start needs-validation", novalidate: true} do |f|  %>
 
-            <%= form_with model: @member_new, url: members_path, method: :post, class: "h-100 border d-flex flex-column justify-content-between", novalidate: true, local: true, scope: :members do |f|  %>
+                              <div class = "has-validation mb-3">
+                                <%= f.label :Full_Name, for: "name", class: "form-label"%>
+                                <%= f.text_field :full_name, autofocus: true, autocomplete: "full name", class: "form-control", required: true, id: "name"%>
+                                <div class="invalid-feedback">
+                                  Please Enter Full Name.
+                                </div>
+                              </div>
 
-      <div class="h-50 d-flex flex-column justify-content-around">
-        <div class="field">
-          <div class = "input-group has-validation">
-            <%= f.label :Full_Name, for: "name" %><br>
-            <%= f.text_field :full_name, autofocus: true, autocomplete: "full name", class: "form-control", required: true, id: "name"%>
-            <div class="invalid-feedback">
-              Please Enter Full Name.
-            </div>
-          </div>
-        </div>
+                              <div class=" has-validation mb-3">
+                                <%= f.label :Member_Role, for: "role", class: "form-label" %>
+                                <%= f.select :member_role, ['Chairman', 'Vice Chairman', 'General Secretary', 'Legal Advidor', 'Other'], { class: "form-control", id: "role" }%>
+                              </div> 
 
-        <div class="field">
-          <div class="input-group has-validation">
-            <%= f.label :Member_Role, for: "role" %>
-            <%= f.select :member_role, ['Chairman', 'Vice Chairman', 'General Secretary', 'Legal Advidor', 'Other'], { class: "form-control", id: "role" }%>
-          </div> 
-        </div>
+                              <div class=" has-validation mb-3">
+                                <%= f.label :Email, for: "validationEmail_news", class: "form-label" %>
+                                <%= f.email_field :email, autofocus: true, autocomplete: "email",id: "validationEmail_news", class: "form-control py-2", 
+                                required: true, placeholder: "Email"
+                                %>
+                                <div class="invalid-feedback">
+                                    Please Enter an Email Address.
+                                </div>
+                              </div> 
 
-        <div class="field">
-          <div class="input-group has-validation">
-            <span class="input-group-text" id="inputGroupPrepending">@</span>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email",id: "validationEmail_news", class: "form-control py-2", 
-            required: true, placeholder: "Email"
-            %>
-            <div class="invalid-feedback">
-                Please Enter an Email Address.
-            </div>
-          </div> 
-        </div>
+                              <div class = " has-validation mb-3">
+                                <%= f.label :Phone_Number, for: "phone", class: "form-label" %>
+                                <%= f.text_field :phone_number, class: "form-control", required: true, id: "phone"%>
+                                <div class="invalid-feedback">
+                                  Please Enter Phone Number.
+                                </div>
+                              </div>
 
-        <div class="field">
-          <div class = "input-group has-validation">
-            <%= f.label :Phone_Number, for: "phone" %><br>
-            <%= f.text_field :phone_number, class: "form-control", required: true, id: "phone"%>
-            <div class="invalid-feedback">
-              Please Enter Phone Number.
-            </div>
-          </div>
-        </div>
-
-        <div class="d-flex flex-wrap justify-content-evenly my-3">
-        <p>Active Region</p>
-          <div class="form-check">
-            <%= f.radio_button :active_region, 'North-West', class: "form-check-input" %>
-            <label class="form-check-label">
-              North-West
-            </label>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :active_region, 'North-East', class: "form-check-input" %>
-            <label class="form-check-label">
-              North-East
-            </label>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :active_region, 'North-Central', class: "form-check-input" %>
-            <label class="form-check-label">
-              North-Central
-            </label>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :active_region, 'South-West', class: "form-check-input" %>
-            <label class="form-check-label">
-              South-West
-            </label>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :active_region, 'South-East', class: "form-check-input" %>
-            <label class="form-check-label">
-              South-East
-            </label>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :active_region, 'South-South', class: "form-check-input" %>
-            <label class="form-check-label">
-              South-South
-            </label>
-          </div>
-        </div>
-        
-      </div>
-      
-
-
-      <div class="d-flex flex-column links_foot_cat align-items-center w-100 p-3 border">
-        <%= f.submit "Save", class: "p-2 lead text-decoration-none btn text-center border"%>
-      </div>
-      
-    <% end %>
-            <!-- Widgets Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
+                            <div class="d-flex flex-wrap justify-content-between my-3">
+                              <p>Active Region</p>
+                              <div class="form-check">
+                                <%= f.radio_button :active_region, 'North-West', class: "form-check-input" %>
+                                <label class="form-check-label">
+                                  North-West
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <%= f.radio_button :active_region, 'North-East', class: "form-check-input" %>
+                                <label class="form-check-label">
+                                  North-East
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <%= f.radio_button :active_region, 'North-Central', class: "form-check-input" %>
+                                <label class="form-check-label">
+                                  North-Central
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <%= f.radio_button :active_region, 'South-West', class: "form-check-input" %>
+                                <label class="form-check-label">
+                                  South-West
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <%= f.radio_button :active_region, 'South-East', class: "form-check-input" %>
+                                <label class="form-check-label">
+                                  South-East
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <%= f.radio_button :active_region, 'South-South', class: "form-check-input" %>
+                                <label class="form-check-label">
+                                  South-South
+                                </label>
+                              </div>
                             </div>
-                            <div id="calender"></div>
-                        </div>
+                            
+
+                          <div class="d-flex flex-column justify-content-center align-items-start w-100">
+                            <%= f.submit "Save", class: "px-3 py-2 lead text-decoration-none btn text-center btn-outline-danger btn-lg"%>
+                          </div>
+                          
+                        <% end %>
                     </div>
                 </div>
-            </div>
-            <!-- Widgets End -->
+              </div> 
+           
 
 
             <!-- Footer Start -->

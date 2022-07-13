@@ -29,4 +29,15 @@ class MembersController < ApplicationController
       end
     end
   end
+
+  def edit
+    @member_edit = Member.find(params[:id])
+  end
+
+  def update
+    @member_edit = Member.find(params[:id])
+    @member_edit.update(full_name: params[:member][:full_name], member_role: params[:member][:member_role], email: params[:member][:email], phone_number: params[:member][:phone_number], active_region: params[:member][:active_region])
+    flash[:notice] = "Updated"
+    redirect_to members_path
+  end
 end
