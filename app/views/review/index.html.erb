@@ -19,6 +19,7 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a6b824c9dd.js" crossorigin="anonymous"></script>
 
     <!-- Libraries Stylesheet -->
     <%= stylesheet_link_tag "css_dashboard/lib/owlcarousel/assets/owl.carousel.min.css" %>
@@ -54,17 +55,18 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">First User</h6>
+                        <h6 class="mb-0"><%= current_user.name %></h6>
+                        <%  if current_user.role == 'admin' %>
                         <span>Admin</span>
+                        <% end %>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/dashboard" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="/groups" class="nav-link"><i class="fa fa-laptop me-2"></i>Details</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Documents</a>
                     <a href="/members" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Members</a>
-                    <a href="/review" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Review</a>
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+                    <a href="/review" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Review</a>
                 </div>
             </nav>
         </div>
@@ -88,7 +90,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <%= image_tag("circle-user-solid.svg", alt: "Logo", class: "rounded-circle me-lg-2", style: "width: 40px; height: 40px;")  %>
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <span class="d-none d-lg-inline-flex"><%= current_user.name%></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
@@ -100,252 +102,149 @@
             </nav>
             <!-- Navbar End -->
 
+            <h3>Please review before submitting for verification</h3>
 
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Sale & Revenue End -->
-            <h2>Review</h2>
-
-    <h3 class="h3">Members</h3>
-    <% if @member != nil %>
-      
-      <div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Full Name</th>
-              <th scope="col">Email@</th>
-              <th scope="col">Member Role</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">Active Region</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @member.each_with_index do |n, idx| %>
-              <tr>
-                <th scope="row"><%= idx + 1 %></th>
-                <td><%= n.full_name %></td>
-                <td><%= n.email %></td>
-                <td><%= n.member_role %></td>
-                <td><%= n.phone_number %></td>
-                <td><%= n.active_region %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      
-    <% end %>
-
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Group Information</th>
-          <th scope="col">First</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Group Name</th>
-          <td><%= current_user.name%></td> 
-        </tr>
-        <tr>
-          <th scope="row">Email Address</th>
-          <td><%= current_user.email%></td>
-        </tr>
-        <tr>
-          <th scope="row">Year of Establishment</th>
-          <td>
-              <% if @group != nil%>
-                <%= @group.year_of_establishment %>
-              <% else %>
-                ...
-              <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Nature of Support Group</th>
-          <td>
-              <% if @group != nil%>
-                <%= @group.nature_of_support_group %>
-              <% else %>
-                ...
-              <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Mode of Funding</th>
-          <td>
-              <% if @group != nil%>
-                <%= @group.mode_of_funding %>
-              <% else %>
-                ...
-              <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Acive Region</th>
-          <td>
-              <% if @group != nil%>
-                <%= @group.active_region %>
-              <% else %>
-                ...
-              <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Strength of group(In figures)</th>
-          <td>
-              <% if @group != nil%>
-                <%= @group.number_of_members %>
-              <% else %>
-                ...
-              <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Nature of Support Group</th>
-          <td>
-              <% if @group != nil%>
-                <%= @group.nature_of_support_group %>
-              <% else %>
-                ...
-              <% end %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-            <!-- Recent Sales Start -->
-            <div class="container-fluid pt-4 px-4">
+              <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Salse</h6>
-                        <a href="">Show All</a>
+                        <h6 class="mb-0">Member Information</h6>
                     </div>
                     <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                        <% if @member != nil %>
+      
+                        <div>
+                          <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
-                                <tr class="text-white">
-                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Invoice</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
-                                </tr>
+                              <tr class="text-white">
+                                <th scope="col">#</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Email@</th>
+                                <th scope="col">Member Role</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Active Region</th>
+                              </tr>
                             </thead>
                             <tbody>
+                              <% @member.each_with_index do |n, idx| %>
                                 <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                  <th scope="row"><%= idx + 1 %></th>
+                                  <td><%= n.full_name %></td>
+                                  <td><%= n.email %></td>
+                                  <td><%= n.member_role %></td>
+                                  <td><%= n.phone_number %></td>
+                                  <td><%= n.active_region %></td>
                                 </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
+                              <% end %>
                             </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- Recent Sales End -->
-
-
-            <!-- Widgets Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div id="calender"></div>
+                          </table>
                         </div>
+                        
+                      <% end %>
+                        
                     </div>
                 </div>
             </div>
-            <!-- Widgets End -->
 
+            
+    <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Relevant Information</h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0 table-striped table-hover">
+                          <thead>
+                            <tr class="text-white">
+                              <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                              <th scope="col">Group Information</th>
+                              <th scope="col">Entries:</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><input class="form-check-input" type="checkbox"></td>
+                              <td scope="row">Group Name</td>
+                              <td><%= current_user.name%></td> 
+                            </tr>
+                            <tr>
+                              <td><input class="form-check-input" type="checkbox"></td>
+                              <td scope="row">Email Address</td>
+                              <td><%= current_user.email%></td>
+                            </tr>
+                            <tr>
+                              <td><input class="form-check-input" type="checkbox"></td>
+                              <td scope="row">Year of Establishment</td>
+                              <td>
+                                  <% if @group != nil%>
+                                    <%= @group.year_of_establishment %>
+                                  <% else %>
+                                    ...
+                                  <% end %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><input class="form-check-input" type="checkbox"></td>
+                              <td scope="row">Nature of Support Group</td>
+                              <td>
+                                  <% if @group != nil%>
+                                    <%= @group.nature_of_support_group %>
+                                  <% else %>
+                                    ...
+                                  <% end %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><input class="form-check-input" type="checkbox"></td>
+                              <td scope="row">Mode of Funding</td>
+                              <td>
+                                  <% if @group != nil%>
+                                    <%= @group.mode_of_funding %>
+                                  <% else %>
+                                    ...
+                                  <% end %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><input class="form-check-input" type="checkbox"></td>
+                              <td scope="row">Acive Region</td>
+                              <td>
+                                  <% if @group != nil%>
+                                    <%= @group.active_region %>
+                                  <% else %>
+                                    ...
+                                  <% end %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><input class="form-check-input" type="checkbox"></td>
+                              <td scope="row">Strength of group(In figures)</td>
+                              <td>
+                                  <% if @group != nil%>
+                                    <%= @group.number_of_members %>
+                                  <% else %>
+                                    ...
+                                  <% end %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><input class="form-check-input" type="checkbox"></td>
+                              <td scope="row">Nature of Support Group</td>
+                              <td>
+                                  <% if @group != nil%>
+                                    <%= @group.nature_of_support_group %>
+                                  <% else %>
+                                    ...
+                                  <% end %>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary m-3"><i class="fal fa-clipboard-check me-2"></i>Verify Group</button>
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
