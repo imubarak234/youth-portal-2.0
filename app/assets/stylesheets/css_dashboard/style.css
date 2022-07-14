@@ -71,7 +71,9 @@
     width: 250px;
     height: 100vh;
     overflow-y: auto;
-    background: var(--secondary);
+    background: white;
+    
+    /* background: var(--secondary); */
     transition: 0.5s;
     z-index: 999;
 }
