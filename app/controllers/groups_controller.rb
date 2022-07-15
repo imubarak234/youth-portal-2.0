@@ -7,7 +7,8 @@ class GroupsController < ApplicationController
 
   def show
     if current_user.role = "Admin"
-      group_show = Group.find(params[:id])
+      @group_show = Group.find(params[:id])
+      @group_user = User.find(@group_show.user_id)
     else
       redirect_to dashboard_path
     end
