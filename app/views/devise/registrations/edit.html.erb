@@ -133,7 +133,7 @@
                             </div>
                             <div class="login-form">
                                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+                                                        <%= render "devise/shared/error_messages", resource: resource %>
 
                       <div class="has-validation mb-3">
                         <%= f.text_field :name , autofocus: true, autocomplete: "name",id: "validationName_new", class: "form-control py-2", 
@@ -153,9 +153,9 @@
                       </div> 
 
                       <div class="has-validation mb-3">
-                      <%= f.label :Group_Size, for: "group_size", class: "pl-2" %>
-                        <%= f.select :group_size, ['National', 'Senitorial', 'State', 'LGA'], {}, { class: "form-control bg-secondary mb-3" }%>
-                      </div> 
+                        <label for="exampleInputEmail1" class="ms-3" for= "group_size">Select Group Size</label>
+                        <%= f.select :group_size, ['National', 'Senitorial', 'State', 'LGA'], {}, { class: "form-control mb-3", id: "group_size", style: "background-color: rgb(249, 249, 249);" }%>
+                      </div>  
 
                     <div class="mb-3">
                       <%= f.password_field :password, autocomplete: "new-password" , class: "form-control py-2", id: "validationCustom03_new",
