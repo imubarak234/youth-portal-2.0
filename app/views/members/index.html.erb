@@ -132,6 +132,8 @@
                                 <th scope="col">Member Role</th>
                                 <th scope="col">Phone Number</th>
                                 <th scope="col">Active Region</th>
+                                <th scope="col">Update</th>
+                                <th scope="col">Delete</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -143,6 +145,16 @@
                                   <td><%= n.member_role %></td>
                                   <td><%= n.phone_number %></td>
                                   <td><%= n.active_region %></td>
+                                  <td><a href="members/<%= n.id %>/edit" class="btn btn-sm btn-primary">Update</a></td>
+                                  <td>
+                                    <%if n.user_id == current_user.id%>
+                                        <form action="/members/<%=n.id%>" method="post">
+                                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="submit" value="Delete" class="btn btn-sm btn-secondary">
+                                        </form>
+                                    <%end%>
+                                  </td>
                                 </tr>
                               <% end %>
                             </tbody>

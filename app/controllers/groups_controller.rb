@@ -5,6 +5,14 @@ class GroupsController < ApplicationController
     @user = current_user
   end
 
+  def show
+    if current_user.role = "Admin"
+      group_show = Group.find(params[:id])
+    else
+      redirect_to dashboard_path
+    end
+  end
+
   def new
     @group_new = current_user.groups.new
     respond_to do |format|

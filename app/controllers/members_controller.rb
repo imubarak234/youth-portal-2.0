@@ -40,4 +40,11 @@ class MembersController < ApplicationController
     flash[:notice] = "Updated"
     redirect_to members_path
   end
+
+  def destroy 
+    member_destroy = Member.find(params[:id])
+    member_destroy.destroy 
+    flash[:notice] = "Member succesfully deleted"
+    redirect_to dashboard_path
+  end
 end
