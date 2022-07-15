@@ -1,37 +1,3 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "needs-validation w-100 d-flex flex-column justify-content-between h-100 mt-3", novalidate: true, id: "session"}) do |f| %>
-  <div class="d-flex flex-column">
-    <div class="field form-group">
-      <div class="input-group has-validation">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",id: "validationCustomUsername", class: "form-control py-2", 
-        required: true, placeholder: "Email"
-        %>
-        <div class="invalid-feedback">
-            Please Enter an Email Address.
-        </div>
-      </div> 
-    </div>
-
-    <div class="field">
-      <%= f.password_field :password, autocomplete: "current-password", class: "form-control py-2", id: "validationCustom03",
-      required: true, placeholder: "Password" %>
-      <div class="invalid-feedback">
-        Please provide Password.
-      </div>
-    </div>
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-decoration-none text-secondary text-center align-items-center" %><br />
-    <% end %>
-  </div>
-
-  <div class="actions d-flex flex-column links_foot align-items-center w-100">
-    <%= f.submit "Log in", class: "p-2 lead text-decoration-none bg-primary text-light text-center" %>
-    <a href="/users/sign_up" class="p-3 lead text-decoration-none text-center text-dark" >Sign Up</a>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
 <!DOCTYPE html>
 <html lang="zxx">
     <head>
@@ -102,7 +68,7 @@
             <div class="main-responsive-nav">
                 <div class="container-fluid plr-100">
                     <div class="mobile-nav">
-                        <a href="index.html" class="logo"><img src="assets/images/download (1).png" alt="logo" /></a>
+                        <a href="index.html" class="logo"><%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %></a>
                         <ul class="menu-sidebar menu-small-device">
                             <li><button class="popup-button"><i class="fas fa-search"></i></button></li>
                             <li><a class="default-button" href="register.html">Register <i class="fas fa-angle-right"></i></a></li>
@@ -115,7 +81,7 @@
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/APC_Youth_logo_01.png" alt="logo" class="w-25"/>
+                            <%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %>
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav">
@@ -166,19 +132,32 @@
                                 <h3>Log In To Your Account</h3>
                             </div>
                             <div class="login-form pr-20">
-                                <form>
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control" placeholder="Enter your email" aria-describedby="emailHelp" required>
+                                <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "needs-validation", novalidate: true, id: "session"}) do |f| %>
+    
+                                  <div class="mb-3 has-validation">
+                                    <%= f.email_field :email, autofocus: true, autocomplete: "email",id: "validationCustomUsername", class: "form-control py-2", 
+                                    required: true, placeholder: "Email"
+                                    %>
+                                    <div class="invalid-feedback">
+                                        Please Enter an Email Address.
                                     </div>
-                                    <div class="mb-3">
-                                        <input type="password" class="form-control" placeholder="Password" required>
+                                  </div> 
+
+                                  <div class="mb-3">
+                                    <%= f.password_field :password, autocomplete: "current-password", class: "form-control py-2", id: "validationCustom03",
+                                    required: true, placeholder: "Password" %>
+                                    <div class="invalid-feedback">
+                                      Please provide Password.
                                     </div>
-                                    <div class="mb-3 form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                                    </div>
-                                    <button type="submit" class="default-button">Log In <i class="fas fa-angle-right"></i></button>
-                                </form>
+                                  </div>
+                                  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                                    <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-decoration-none text-secondary text-center align-items-center" %><br />
+                                  <% end %>
+
+                                  <%= f.submit "Log in", class: "default-button" %>
+                                  <a href="/users/sign_up" class="pt-3 text-decoration-none text-center text-dark" >Sign Up</a>
+                              <% end %>
+
                             </div>
                         </div>
                     </div>
@@ -194,7 +173,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="footer-logo-area">
-                                <a href="index.html"><img src="assets/images/APC_Youth_logo_01.png" class="w-25" alt="image"></a>
+                                <a href="index.html"><%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %></a>
                                 <p>The goal of the revalidation exercise is to organize the various youth support groups into a recognizable structure strongly aligned with the objectives and strategic imperatives of the National Working Committee.</p>
                                 <div class="footer-social-area">
                                     <ul>
@@ -276,20 +255,20 @@
         <div class="go-top"><i class="fas fa-chevron-up"></i></div>
     
         <!-- Link of JS files -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery-ui.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/meanmenu.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/magnific-popup.min.js"></script>
-        <script src="assets/js/TweenMax.js"></script>
-        <script src="assets/js/nice-select.min.js"></script>
-        <script src="assets/js/form-validator.min.js"></script>
-        <script src="assets/js/contact-form-script.js"></script>
-        <script src="assets/js/ajaxchimp.min.js"></script>
-        <script src="assets/js/owl.carousel2.thumbs.min.js"></script>
-        <script src="assets/js/appear.min.js"></script>
-        <script src="assets/js/odometer.min.js"></script>
-        <script src="assets/js/custom.js"></script>
+        <%= javascript_include_tag "jquery.min.js" %>
+        <%= javascript_include_tag "jquery-ui.min.js" %>
+        <%= javascript_include_tag "bootstrap.bundle.min.js" %>
+        <%= javascript_include_tag "meanmenu.js" %>
+        <%= javascript_include_tag "owl.carousel.min.js" %>
+        <%= javascript_include_tag "magnific-popup.min.js" %>
+        <%= javascript_include_tag "TweenMax.js" %>
+        <%= javascript_include_tag "nice-select.min.js" %>
+        <%= javascript_include_tag "form-validator.min.js" %>
+        <%= javascript_include_tag "contact-form-script.js" %>
+        <%= javascript_include_tag "ajaxchimp.min.js" %>
+        <%= javascript_include_tag "owl.carousel2.thumbs.min.js" %>
+        <%= javascript_include_tag "appear.min.js" %>
+        <%= javascript_include_tag "odometer.min.js" %>
+        <%= javascript_include_tag "custom.js" %>
     </body>
 </html>
