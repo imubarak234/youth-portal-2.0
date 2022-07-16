@@ -27,5 +27,13 @@ class ReviewController < ApplicationController
   end
 
   def verified
+    if is_verified
+      current_user.update(verified: true)
+      flash[:notice] = "Group is verified"
+      redirect_to dashboard_path
+    else
+      flash[:notice] = "Group not verfied"
+      redirect_to review_path
+    end
   end
 end

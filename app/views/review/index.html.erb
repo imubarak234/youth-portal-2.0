@@ -251,8 +251,9 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-primary m-3"><i class="fal fa-clipboard-check me-2"></i>Verify Group</button>
-
+            <% if current_user.verified == false %>
+              <button type="button" class="btn btn-primary m-3"><i class="fal fa-clipboard-check me-2"></i>Verify Group</button>
+            <% end %>
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
