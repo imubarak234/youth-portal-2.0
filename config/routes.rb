@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'dashboard#index'
 
-  get '/review', to: 'review#index'
+  get '/review', to: 'review#index' 
+
+  get '/verified', to: 'review#verified'
 
   resources :users, only: [:index, :new, :create, :show]
   resources :members
