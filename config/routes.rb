@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/verified', to: 'review#verified'
 
-  get '/document', to: 'dashboard#document'
+  resources :documents, only: [:index, :new, :create]
 
   resources :users, only: [:index, :new, :create, :show]
   resources :members
