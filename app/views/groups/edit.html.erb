@@ -66,7 +66,7 @@
                 <div class="navbar-nav w-100">
                     <a href="/dashboard" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="/groups" class="nav-link active"><i class="fa fa-laptop me-2"></i>Details</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Documents</a>
+                    <a href="/document" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Documents</a>
                     <a href="/members" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Members</a>
                     <a href="/review" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Review</a>
                 </div>
@@ -152,7 +152,7 @@
                                 
                                   <div class = "mb-3 has-validation">
                                     <%= f.label :Head_office_address, for: "head_office" %><br>
-                                    <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
+                                    <%= f.text_area :head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
                                   </div>
 
                                 
@@ -302,7 +302,7 @@
                               
                                 <div class = "mb-3 has-validation">
                                   <%= f.label :Head_office_address, for: "head_office" %><br>
-                                  <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
+                                  <%= f.text_area :head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
                                 </div>
 
                               
@@ -391,7 +391,7 @@
 
                               <% elsif current_user.group_size == "LGA" %>
 
-                              
+
                                 <div class = "mb-3 has-validation">
                                   <%= f.label :Name_Of_Support_Group, for: "name" %><br>
                                   <%= f.text_field :name_of_support_group, class: "form-control", required: true, id: "name"%><br>
@@ -420,7 +420,7 @@
                               
                                 <div class = "mb-3 has-validation">
                                   <%= f.label :Head_office_address, for: "head_office" %><br>
-                                  <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
+                                  <%= f.text_area :head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
                                 </div>
 
                               
@@ -546,7 +546,7 @@
                               
                                 <div class = "mb-3 has-validation">
                                   <%= f.label :Head_office_address, for: "head_office" %><br>
-                                  <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
+                                  <%= f.text_area :head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
                                 </div>
 
                               
@@ -711,7 +711,7 @@
                               
                                 <div class = "mb-3 has-validation">
                                   <%= f.label :Head_office_address, for: "head_office" %><br>
-                                  <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
+                                  <%= f.text_area :head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
                                 </div>
 
                               
