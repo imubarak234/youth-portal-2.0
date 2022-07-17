@@ -123,119 +123,728 @@
                     <div class="table-responsie">
                         <%= form_for @group_edit, html: {class: "d-flex flex-column justify-content-start text-start needs-validation", novalidate: true}  do |f|  %>
 
-                              <div class = "has-validation mb-3">
-                                <%= f.label :Year_Of_Establishment, for: "years", class: "form-label " %>
-                                <%= f.number_field :year_of_establishment, class: "form-control", required: true, id: "years"%>
-                              </div>
+                              <% if current_user.group_size == "National" %>
+                                  <div class = "mb-3 has-validation">
+                                    <%= f.label :Name_Of_Support_Group, for: "name" %><br>
+                                    <%= f.text_field :name_of_support_group, class: "form-control", required: true, id: "name"%><br>
+                                    <div class="invalid-feedback">
+                                      Please Enter Name.
+                                    </div>
+                                  </div>
 
-                            
-                              <div class="mb-3 has-validation">
-                                <%= f.label :Nature_Of_Support_Group, for: "nature_group" %><br>
-                                <%= f.select :nature_of_support_group, ['Candidate Based Support Group', 'Party Based Support Group'], { class: "form-control", id: "nature_group" }%><br>
-                              </div> 
+                                  <div class = "has-validation mb-3">
+                                    <%= f.label :Year_Of_Establishment, for: "years", class: "form-label " %>
+                                    <%= f.number_field :year_of_establishment, class: "form-control", required: true, id: "years"%>
+                                  </div>
 
-                            
-                              <div class="mb-3 has-validation">
-                                <%= f.label :Mode_OF_Funding, for: "funding_mode" %><br>
-                                <%= f.select :mode_of_funding, ['Outside Donors', 'Individual Sponsorship', 'Membership Dues','Others'], { class: "form-control", id: "funding_mode" }%><br>
-                              </div> 
+                                
+                                  <div class="mb-3 has-validation">
+                                    <%= f.label :Nature_Of_Support_Group, for: "nature_group" %><br>
+                                    <%= f.select :nature_of_support_group, ['Candidate Based Support Group', 'Party Based Support Group'], { class: "form-control", id: "nature_group" }%><br>
+                                  </div> 
 
-                            
-                              <div class = "mb-3 has-validation">
-                                <%= f.label :Constitution_OF_Group, for: "constitution" %><br>
-                                <%= f.text_field :constitution_of_group, class: "form-control", id: "constitution"%><br>
-                              </div>
+                                
+                                  <div class="mb-3 has-validation">
+                                    <%= f.label :Mode_OF_Funding, for: "funding_mode" %><br>
+                                    <%= f.select :mode_of_funding, ['Outside Donors', 'Individual Sponsorship', 'Membership Dues','Others'], { class: "form-control", id: "funding_mode" }%><br>
+                                  </div> 
 
-                            
-                              <div class = "mb-3 has-validation">
-                                <%= f.label :State, for: "state" %><br>
-                                <%= f.text_field :state, class: "form-control", required: true, id: "state"%><br>
-                                <div class="invalid-feedback">
-                                  Please Enter State.
+                                
+                                  <div class = "mb-3 has-validation">
+                                    <%= f.label :Head_office_address, for: "head_office" %><br>
+                                    <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
+                                  </div>
+
+                                
+                                  <div class = "mb-3 has-validation">
+                                    <%= f.label :Zonal_Office_Address, for: "zone_address" %><br>
+                                    <%= f.text_area :zonal_office_address, class: "form-control", required: true, id: "zone_address", size: "60x10" %><br>
+                                    <div class="invalid-feedback">
+                                      Please Enter Zonal Address.
+                                    </div>
+                                  </div>
+
+                                  <div class="d-flex flex-wrap justify-content-between my-3">
+                                    <p class="text-white">Membership Status</p>
+                                    <div class="form-check">
+                                      <%= f.radio_button :membership_status, 'Yes', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :membership_status, 'No', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        No
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :membership_status, 'Not All', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Not All
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                  <div class="d-flex flex-wrap justify-content-between my-3">
+                                    <p class="text-white">Active Region</p>
+                                      <div class="form-check">
+                                        <%= f.radio_button :active_region, 'North-West', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          North-West
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <%= f.radio_button :active_region, 'North-East', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          North-East
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <%= f.radio_button :active_region, 'North-Central', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          North-Central
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <%= f.radio_button :active_region, 'South-West', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          South-West
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <%= f.radio_button :active_region, 'South-East', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          South-East
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <%= f.radio_button :active_region, 'South-South', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          South-South
+                                        </label>
+                                      </div>
+                                  </div>
+
+                                  <div class="d-flex flex-wrap justify-content-between my-3">
+                                    <p class="text-white">Focus of support group</p>
+                                      <div class="form-check">
+                                        <%= f.radio_button :focus_of_support_group, 'Media Advocay', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          Media Advocay
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <%= f.radio_button :focus_of_support_group, 'Voter Mobilization', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          Voter Mobilization
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <%= f.radio_button :focus_of_support_group, 'Policy Support', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          Policy Support
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <%= f.radio_button :focus_of_support_group, 'Candidate/Individual-Alliliated', class: "form-check-input" %>
+                                        <label class="form-check-label">
+                                          Candidate/Individual-Alliliated
+                                        </label>
+                                      </div>
+                                      <div class = "mb-3">
+                                        <label for="focus" class="form-label">Other(please specify)</label><br>
+                                        <%= f.text_field :focus_of_support_group, class: "form-control", id: "focus"%><br>
+                                      </div>
+                                  </div>
+
+                                  <div class = "mb-3 has-validation">
+                                    <%= f.label :Number_Of_Members, for: "members" %><br>
+                                    <%= f.number_field :number_of_members, class: "form-control", required: true, id: "members"%><br>
+                                    <div class="invalid-feedback">
+                                      Please Enter Number of Members.
+                                    </div>
+                                  </div>
+
+                                  <div class="d-flex flex-column justify-content-center align-items-start w-100">
+                                    <%= f.submit "Save", class: "px-3 py-2 lead text-decoration-none btn text-center btn-outline-danger btn-lg"%>
+                                  </div>
+
+
+                              <% elsif current_user.group_size == "Senitorial" %>
+
+
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Name_Of_Support_Group, for: "name" %><br>
+                                  <%= f.text_field :name_of_support_group, class: "form-control", required: true, id: "name"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Name.
+                                  </div>
                                 </div>
-                              </div>
 
-                            
-                              <div class = "mb-3 has-validation">
-                                <%= f.label :Recommendation, for: "recommend" %><br>
-                                <%= f.text_field :recommendation, class: "form-control", id: "recommend"%><br>
-                              </div>
-                            
-                            
-                              <div class = "mb-3 has-validation">
-                                <%= f.label :Guarantor, for: "grant" %><br>
-                                <%= f.text_field :guarantor, class: "form-control", id: "grant"%><br>
-                              </div>
+                                <div class = "has-validation mb-3">
+                                  <%= f.label :Year_Of_Establishment, for: "years", class: "form-label " %>
+                                  <%= f.number_field :year_of_establishment, class: "form-control", required: true, id: "years"%>
+                                </div>
 
-                            
-                              <div class = "mb-3 has-validation">
-                                <%= f.label :Local_Government_Area, for: "lga" %><br>
-                                <%= f.text_field :lga, class: "form-control", required: true, id: "lga"%><br>
-                                <div class="invalid-feedback">
-                                  Please Enter LGA.
-                                </div>
-                              </div>
+                              
+                                <div class="mb-3 has-validation">
+                                  <%= f.label :Nature_Of_Support_Group, for: "nature_group" %><br>
+                                  <%= f.select :nature_of_support_group, ['Candidate Based Support Group', 'Party Based Support Group'], { class: "form-control", id: "nature_group" }%><br>
+                                </div> 
 
-                            
-                              <div class = "mb-3 has-validation">
-                                <%= f.label :Address, for: "address" %><br>
-                                <%= f.text_field :address, class: "form-control", required: true, id: "address"%><br>
-                                <div class="invalid-feedback">
-                                  Please Enter Address.
-                                </div>
-                              </div>
+                              
+                                <div class="mb-3 has-validation">
+                                  <%= f.label :Mode_OF_Funding, for: "funding_mode" %><br>
+                                  <%= f.select :mode_of_funding, ['Outside Donors', 'Individual Sponsorship', 'Membership Dues','Others'], { class: "form-control", id: "funding_mode" }%><br>
+                                </div> 
 
-                            <div class="d-flex flex-wrap justify-content-between my-3">
-                              <p class="text-white">Active Region</p>
-                                <div class="form-check">
-                                  <%= f.radio_button :active_region, 'North-West', class: "form-check-input" %>
-                                  <label class="form-check-label">
-                                    North-West
-                                  </label>
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Head_office_address, for: "head_office" %><br>
+                                  <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
                                 </div>
-                                <div class="form-check">
-                                  <%= f.radio_button :active_region, 'North-East', class: "form-check-input" %>
-                                  <label class="form-check-label">
-                                    North-East
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <%= f.radio_button :active_region, 'North-Central', class: "form-check-input" %>
-                                  <label class="form-check-label">
-                                    North-Central
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <%= f.radio_button :active_region, 'South-West', class: "form-check-input" %>
-                                  <label class="form-check-label">
-                                    South-West
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <%= f.radio_button :active_region, 'South-East', class: "form-check-input" %>
-                                  <label class="form-check-label">
-                                    South-East
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <%= f.radio_button :active_region, 'South-South', class: "form-check-input" %>
-                                  <label class="form-check-label">
-                                    South-South
-                                  </label>
-                                </div>
-                            </div>
 
-                            <div class = "mb-3 has-validation">
-                              <%= f.label :Number_Of_Members, for: "members" %><br>
-                              <%= f.number_field :number_of_members, class: "form-control", required: true, id: "members"%><br>
-                              <div class="invalid-feedback">
-                                Please Enter Number of Members.
-                              </div>
-                            </div>
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Senatorial_District, for: "district" %><br>
+                                  <%= f.text_field :senatorial_district, class: "form-control", required: true, id: "district"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Senatorial District.
+                                  </div>
+                                </div>
 
-                          <div class="d-flex flex-column justify-content-center align-items-start w-100">
-                            <%= f.submit "Update", class: "px-3 py-2 lead text-decoration-none btn text-center btn-outline-danger btn-lg"%>
-                          </div>
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :State, for: "state" %><br>
+                                  <%= f.text_field :state, class: "form-control", required: true, id: "state"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter State.
+                                  </div>
+                                </div>
+
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Focus of support group</p>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Media Advocay', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Media Advocay
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Voter Mobilization', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Voter Mobilization
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Policy Support', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Policy Support
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Candidate/Individual-Alliliated', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Candidate/Individual-Alliliated
+                                      </label>
+                                    </div>
+                                    <div class = "mb-3">
+                                      <label for="focus" class="form-label">Other(please specify)</label><br>
+                                      <%= f.text_field :focus_of_support_group, class: "form-control", id: "focus"%><br>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Membership Status</p>
+                                    <div class="form-check">
+                                      <%= f.radio_button :membership_status, 'Yes', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :membership_status, 'No', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        No
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :membership_status, 'Not All', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Not All
+                                      </label>
+                                    </div>
+                                </div>
+
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Number_Of_Members, for: "members" %><br>
+                                  <%= f.number_field :number_of_members, class: "form-control", required: true, id: "members"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Number of Members.
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-column justify-content-center align-items-start w-100">
+                                  <%= f.submit "Save", class: "px-3 py-2 lead text-decoration-none btn text-center btn-outline-danger btn-lg"%>
+                                </div>
+
+                              <% elsif current_user.group_size == "LGA" %>
+
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Name_Of_Support_Group, for: "name" %><br>
+                                  <%= f.text_field :name_of_support_group, class: "form-control", required: true, id: "name"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Name.
+                                  </div>
+                                </div>
+
+                                <div class = "has-validation mb-3">
+                                  <%= f.label :Year_Of_Establishment, for: "years", class: "form-label " %>
+                                  <%= f.number_field :year_of_establishment, class: "form-control", required: true, id: "years"%>
+                                </div>
+
+                              
+                                <div class="mb-3 has-validation">
+                                  <%= f.label :Nature_Of_Support_Group, for: "nature_group" %><br>
+                                  <%= f.select :nature_of_support_group, ['Candidate Based Support Group', 'Party Based Support Group'], { class: "form-control", id: "nature_group" }%><br>
+                                </div> 
+
+                              
+                                <div class="mb-3 has-validation">
+                                  <%= f.label :Mode_OF_Funding, for: "funding_mode" %><br>
+                                  <%= f.select :mode_of_funding, ['Outside Donors', 'Individual Sponsorship', 'Membership Dues','Others'], { class: "form-control", id: "funding_mode" }%><br>
+                                </div> 
+
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Head_office_address, for: "head_office" %><br>
+                                  <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
+                                </div>
+
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :State, for: "state" %><br>
+                                  <%= f.text_field :state, class: "form-control", required: true, id: "state" %><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter State.
+                                  </div>
+                                </div>
+
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Senatorial_District, for: "district" %><br>
+                                  <%= f.text_field :senatorial_district, class: "form-control", required: true, id: "district" %><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Senatorial District.
+                                  </div>
+                                </div>
+
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :LGA, for: "lga" %><br>
+                                  <%= f.text_field :lga, class: "form-control", required: true, id: "lga" %><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter LGA.
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Membership Status</p>
+                                  <div class="form-check">
+                                    <%= f.radio_button :membership_status, 'Yes', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <%= f.radio_button :membership_status, 'No', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      No
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <%= f.radio_button :membership_status, 'Not All', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Not All
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Focus of support group</p>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Media Advocay', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Media Advocay
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Voter Mobilization', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Voter Mobilization
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Policy Support', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Policy Support
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Candidate/Individual-Alliliated', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Candidate/Individual-Alliliated
+                                      </label>
+                                    </div>
+                                    <div class = "mb-3">
+                                      <label for="focus" class="form-label">Other(please specify)</label><br>
+                                      <%= f.text_field :focus_of_support_group, class: "form-control", id: "focus"%><br>
+                                    </div>
+                                </div>
+
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Number_Of_Members, for: "members" %><br>
+                                  <%= f.number_field :number_of_members, class: "form-control", required: true, id: "members"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Number of Members.
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-column justify-content-center align-items-start w-100">
+                                  <%= f.submit "Save", class: "px-3 py-2 lead text-decoration-none btn text-center btn-outline-danger btn-lg"%>
+                                </div>
+
+
+                              <% elsif current_user.group_size == "Regional" %>
+
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Name_Of_Support_Group, for: "name" %><br>
+                                  <%= f.text_field :name_of_support_group, class: "form-control", required: true, id: "name"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Name.
+                                  </div>
+                                </div>
+
+                                <div class = "has-validation mb-3">
+                                  <%= f.label :Year_Of_Establishment, for: "years", class: "form-label " %>
+                                  <%= f.number_field :year_of_establishment, class: "form-control", required: true, id: "years"%>
+                                </div>
+
+                              
+                                <div class="mb-3 has-validation">
+                                  <%= f.label :Nature_Of_Support_Group, for: "nature_group" %><br>
+                                  <%= f.select :nature_of_support_group, ['Candidate Based Support Group', 'Party Based Support Group'], { class: "form-control", id: "nature_group" }%><br>
+                                </div> 
+
+                              
+                                <div class="mb-3 has-validation">
+                                  <%= f.label :Mode_OF_Funding, for: "funding_mode" %><br>
+                                  <%= f.select :mode_of_funding, ['Outside Donors', 'Individual Sponsorship', 'Membership Dues','Others'], { class: "form-control", id: "funding_mode" }%><br>
+                                </div> 
+
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Head_office_address, for: "head_office" %><br>
+                                  <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
+                                </div>
+
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Branch_Offices, for: "branch" %><br>
+                                  <%= f.text_area :branch_offices, class: "form-control", required: true, id: "branch", size: "60x10" %><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Branch Address.
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Membership Status</p>
+                                  <div class="form-check">
+                                    <%= f.radio_button :membership_status, 'Yes', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <%= f.radio_button :membership_status, 'No', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      No
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <%= f.radio_button :membership_status, 'Not All', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Not All
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Region of Operation</p>
+                                  <div class="form-check">
+                                    <%= f.radio_button :region_of_operation, 'Northern Nigeria', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Northern Nigeria
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <%= f.radio_button :region_of_operation, 'Southern Nigeria', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Southern Nigeria
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Geo-political Zone</p>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'North-West', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        North-West
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'North-East', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        North-East
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'North-Central', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        North-Central
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'South-West', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        South-West
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'South-East', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        South-East
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'South-South', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        South-South
+                                      </label>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Focus of support group</p>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Media Advocay', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Media Advocay
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Voter Mobilization', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Voter Mobilization
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Policy Support', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Policy Support
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Candidate/Individual-Alliliated', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Candidate/Individual-Alliliated
+                                      </label>
+                                    </div>
+                                    <div class = "mb-3">
+                                      <label for="focus" class="form-label">Other(please specify)</label><br>
+                                      <%= f.text_field :focus_of_support_group, class: "form-control", id: "focus"%><br>
+                                    </div>
+                                </div>
+
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Number_Of_Members, for: "members" %><br>
+                                  <%= f.number_field :number_of_members, class: "form-control", required: true, id: "members"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Number of Members.
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-column justify-content-center align-items-start w-100">
+                                  <%= f.submit "Save", class: "px-3 py-2 lead text-decoration-none btn text-center btn-outline-danger btn-lg"%>
+                                </div>
+
+                              <% elsif current_user.group_size == "State" %>
+                              
+
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Name_Of_Support_Group, for: "name" %><br>
+                                  <%= f.text_field :name_of_support_group, class: "form-control", required: true, id: "name"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Name.
+                                  </div>
+                                </div>
+
+                                <div class = "has-validation mb-3">
+                                  <%= f.label :Year_Of_Establishment, for: "years", class: "form-label " %>
+                                  <%= f.number_field :year_of_establishment, class: "form-control", required: true, id: "years"%>
+                                </div>
+
+                              
+                                <div class="mb-3 has-validation">
+                                  <%= f.label :Nature_Of_Support_Group, for: "nature_group" %><br>
+                                  <%= f.select :nature_of_support_group, ['Candidate Based Support Group', 'Party Based Support Group'], { class: "form-control", id: "nature_group" }%><br>
+                                </div> 
+
+                              
+                                <div class="mb-3 has-validation">
+                                  <%= f.label :Mode_OF_Funding, for: "funding_mode" %><br>
+                                  <%= f.select :mode_of_funding, ['Outside Donors', 'Individual Sponsorship', 'Membership Dues','Others'], { class: "form-control", id: "funding_mode" }%><br>
+                                </div> 
+
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Head_office_address, for: "head_office" %><br>
+                                  <%= f.text_area :Head_office_address, class: "form-control", id: "head_office", size: "60x10" %><br>
+                                </div>
+
+                              
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Branch_Offices, for: "branch" %><br>
+                                  <%= f.text_area :branch_offices, class: "form-control", required: true, id: "branch", size: "60x10" %><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Branch Address.
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Membership Status</p>
+                                  <div class="form-check">
+                                    <%= f.radio_button :membership_status, 'Yes', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <%= f.radio_button :membership_status, 'No', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      No
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <%= f.radio_button :membership_status, 'Not All', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Not All
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Region of Operation</p>
+                                  <div class="form-check">
+                                    <%= f.radio_button :region_of_operation, 'Northern Nigeria', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Northern Nigeria
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <%= f.radio_button :region_of_operation, 'Southern Nigeria', class: "form-check-input" %>
+                                    <label class="form-check-label">
+                                      Southern Nigeria
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Geo-political Zone</p>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'North-West', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        North-West
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'North-East', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        North-East
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'North-Central', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        North-Central
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'South-West', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        South-West
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'South-East', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        South-East
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :geo_political_zone, 'South-South', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        South-South
+                                      </label>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap justify-content-between my-3">
+                                  <p class="text-white">Focus of support group</p>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Media Advocay', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Media Advocay
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Voter Mobilization', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Voter Mobilization
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Policy Support', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Policy Support
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <%= f.radio_button :focus_of_support_group, 'Candidate/Individual-Alliliated', class: "form-check-input" %>
+                                      <label class="form-check-label">
+                                        Candidate/Individual-Alliliated
+                                      </label>
+                                    </div>
+                                    <div class = "mb-3">
+                                      <label for="focus" class="form-label">Other(please specify)</label><br>
+                                      <%= f.text_field :focus_of_support_group, class: "form-control", id: "focus"%><br>
+                                    </div>
+                                </div>
+
+                                <div class = "mb-3 has-validation">
+                                  <%= f.label :Number_Of_Members, for: "members" %><br>
+                                  <%= f.number_field :number_of_members, class: "form-control", required: true, id: "members"%><br>
+                                  <div class="invalid-feedback">
+                                    Please Enter Number of Members.
+                                  </div>
+                                </div>
+
+                                <div class="d-flex flex-column justify-content-center align-items-start w-100">
+                                  <%= f.submit "Save", class: "px-3 py-2 lead text-decoration-none btn text-center btn-outline-danger btn-lg"%>
+                                </div>
+                              <% end %>
       
                         <% end %>
                     </div>
