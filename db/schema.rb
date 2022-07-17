@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_17_013635) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_17_140819) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,17 +46,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_17_013635) do
     t.integer "year_of_establishment"
     t.string "nature_of_support_group"
     t.string "mode_of_funding"
-    t.text "constitution_of_group"
     t.string "state"
-    t.text "recommendation"
-    t.text "guarantor"
     t.string "lga"
-    t.text "address"
     t.string "active_region"
     t.integer "number_of_members"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "head_office_address"
+    t.string "focus_of_support_group"
+    t.string "zonal_office_address"
+    t.string "region_of_operation"
+    t.string "geo_political_zone"
+    t.string "branch_offices"
+    t.string "senatorial_district"
+    t.string "name_of_support_group"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
