@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :members
   has_many :groups
+  has_many :documents
 
   validates :name, presence: true, length: { minimum: 3, maximum: 100 }
   validates :email, presence: true
