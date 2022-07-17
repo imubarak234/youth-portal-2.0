@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Link of CSS files -->
+        <%= stylesheet_link_tag "css/animate.min.css" %>
+        <%= stylesheet_link_tag "css/bootstrap.min.css" %>
+        <%= stylesheet_link_tag "css/fontawsome.min.css" %>
+        <%= stylesheet_link_tag "css/meanmenu.min.css" %>
+        <%= stylesheet_link_tag "css/owl.carousel.min.css" %>
+        <%= stylesheet_link_tag "css/nice-select.min.css" %>
+        <%= stylesheet_link_tag "css/owl.theme.default.min.css" %>
+        <%= stylesheet_link_tag "css/magnific-popup.min.css" %>
+        <%= stylesheet_link_tag "css/jquery-ui.min.css" %>
+        <%= stylesheet_link_tag "css/odometer.min.css" %>
+        <%= stylesheet_link_tag "css/style.css" %>
+        <%= stylesheet_link_tag "css/responsive.css" %>
+        <%= stylesheet_link_tag "fonts/flaticon.css" %>
+        <script src="https://kit.fontawesome.com/a6b824c9dd.js" crossorigin="anonymous"></script>
+
+        <title>APC Youth Wing</title>
+        <link rel="icon" type="image/png" href="assets/images/fav-icon.png">
+    </head>
+    <body>
+
+        <!-- Header area start -->
+        <section class="topbar plr-100 bg-black">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="topbar-left-area">
+                            <ul>
+                                <li><a href="mailto:support@medzo.com"><i class="fas fa-envelope"></i> info@apc.com.ng</a></li>
+                                <li><a href="https://goo.gl/maps/T3S78DrzqMegjsLy6"><i class="fas fa-map-marker-alt"></i> 40 Blantyre Cres,Wuse 2 904101, Abuja</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="topbar-right-area">
+                            <ul>
+                                <li>
+                                <% if user_signed_in? %>
+                                    <i class="fas fa-user"></i>
+                                    <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
+                                <% else %>
+                                    <a href="/users/sign_in"><i class="fas fa-user"></i> Login</a>
+                                <% end %> 
+                                </li>
+                                <li>
+                                    <div class="language-select option-select-area">
+                                        <i class="fas fa-globe"></i>
+                                        <select>
+                                            <option value="1">English</option>
+                                            <option value="2">العربيّة</option>
+                                            <option value="3">Dutch</option>
+                                            <option value="4">Thai</option>
+                                            <option value="5">简体中</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Header area end -->
+
+        <!-- Navigation area start -->
+        <div class="navbar-area">
+            <!-- Menu For Mobile Device -->
+            <div class="main-responsive-nav">
+                <div class="container-fluid plr-100">
+                    <div class="mobile-nav">
+                        <a href="index.html" class="logo"><%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %></a>
+                        <ul class="menu-sidebar menu-small-device">
+                            <li><button class="popup-button"><i class="fas fa-search"></i></button></li>
+                            <li><a class="default-button" href="/users/sign_up">Register <i class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav plr-100">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <a class="navbar-brand" href="index.html">
+                            <%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %>
+                        </a>
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item ">
+                                    <a href="/" class="nav-link active">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#about_us" class="nav-link">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#f_a_q" class="nav-link">FAQs</a>
+                                </li>
+                                <li class="nav-item"><a href="#contact_us" class="nav-link">Contact Us</a></li>
+                                <li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                            </ul>
+                            <div class="menu-sidebar">
+                                <ul>
+                                    <li><a class="default-button" href="/users/sign_up">Register</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation area end -->
+
+        <!-- Main Banner Area Start -->
+        <section class="main-banner plr-100 bg-f9fbfe">
+            <!-- <span class="banner-comment"><a href="contact.html"><i class="far fa-comment-dots"></i> CONTACT US</a></span> -->
+            <div class="banner-social-icons">
+                <ul>
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                </ul> 
+            </div>
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="banner-text-area banner-text-area-1">
+                            <h6>Become an Accredited Support Group</h6>
+                            <h1>Welcome to APC Youth Wing Support Group Accreditation Program</h1>
+                            <p>To Become Accredited Support Group Click on the Button Below</p>
+                            <a class="default-button" href="/users/sign_up">Join Us</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="banner-img-area-1">
+                            <%= image_tag("banner/pexels-git-stephen-gitau-1667850_cleanup.jpg")  %>
+                            <a class="video-popup" href="https://www.youtube.com/watch?v=90uAt103Hog&ab_channel=Andy%27sVisualAdventures"><i class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Main Banner Area End -->
+
+        <!-- Service Area Start -->
+        <section class="services pt-100 pb-70">
+            <div class="container">
+                <div class="default-section-title default-section-title-middle">
+                    <h3>Our Objectives</h3>
+                    <p>As we approach an important election year, it has become essential to bridge this gap, hence the proposal of an exercise to revalidate the membership and affiliation of all youth support groups associated with the youth wing of the party.</p>
+                </div>
+                <div class="section-content">
+                    <div class="service-slider-area-1 owl-carousel">
+                        <div class="service-card mlr-15 mb-30">
+                            <div class="service-card-img">
+                                <a href="#"><%= image_tag("service/pexels-emmanuel-ikwuegbu-8445454.jpg", alt: "image")  %></a>
+                                <i class="flaticon-balance"></i>
+                            </div>
+                            <div class="service-card-text">
+                                <h4><a href="#">A dedicated youth wing</a></h4>
+                                <p>To conduct Nigerias first dedicated youth wing membership registration drive for young people across the country to formally join the All-Progressives Congress through an e-membership portal</p>
+                                <a class="read-more-btn" href="#">Read More</a>
+                            </div>
+                        </div>
+                        <div class="service-card mlr-15 mb-30">
+                            <div class="service-card-img">
+                                <a href="#"><%= image_tag("service/pexels-cytonn-photography-955389.jpg", alt: "image")  %></a>
+                                <i class="flaticon-delivery"></i>
+                            </div>
+                            <div class="service-card-text">
+                                <h4><a href="#">Membership registration exercise</a></h4>
+                                <p>To leverage and increase the party’s appeal in Nigeria’s most popular demography with a membership registration exercise that is modern, efficient, and accessible</p>
+                                <a class="read-more-btn" href="#">Read More</a>
+                            </div>
+                        </div>
+                        <div class="service-card mlr-15 mb-30">
+                            <div class="service-card-img">
+                                <a href="#"><%= image_tag("service/pexels-brett-sayles-4508751.jpg", alt: "image")  %></a>
+                                <i class="flaticon-portfolio"></i>
+                            </div>
+                            <div class="service-card-text">
+                                <h4><a href="#">Comprehensive Database of Young Progressives</a></h4>
+                                <p>To develop a comprehensive database of young people in the All-Progressives Congress (APC) using a robust information management system that can auto-generate membership numbers</p>
+                                <a class="read-more-btn" href="#">Read More</a>
+                            </div>
+                        </div>
+                        <div class="service-card mlr-15 mb-30">
+                            <div class="service-card-img">
+                                <a href="#"><%= image_tag("service/pexels-burak-the-weekender-186461.jpg", alt: "image")  %></a>
+                                <i class="flaticon-smart-city"></i>
+                            </div>
+                            <div class="service-card-text">
+                                <h4><a href="#">Effectively Maintain Youth Data</a></h4>
+                                <p>To obtain and maintain information and contact details of young Nigerians, down to the ward level, that can be used strengthen the ties of the party with a popular and important age-group</p>
+                                <a class="read-more-btn" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Service Area End -->
+
+        <!-- Who We Are Area Start -->
+        <section class="we-are pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="why-we-img">
+                            <%= image_tag("my_project.jpg", alt: "image")  %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="why-we-text-area">
+                            <div class="default-section-title" id="about_us">
+                                <span>WHO WE ARE</span>
+                                <h3>About Us</h3>
+                                <p>As Africa’s largest political party and Nigeria’s ruling party, the All Progressives Congress (APC) boasts of numerous youth support groups and other affiliated campaign-based organizations with a stated mandate of mobilizing and engaging young people in the interest(s) of the party</p>
+                            </div>
+                            <div class="why-we-text-list">
+                                <i class="flaticon-government-building"></i>
+                                <h4>Our Role Is To:</h4>
+                                <p>Indeed these groups have played pivotal roles in the past, particularly during elections at different levels, to aid the victory of the party and expand her youth support base <br> <br>
+                                    However, the multiplicity of these groups and the lack of an up-to-date record maintained by the party for verification and organization purposes have undermined integration efforts and in other cases frustrated engagement opportunities, causing the party’s youth leadership to struggle to verify claims and provide support where necessary and in cases where one is sought
+                                    <br><br> As we approach an important election year, it has become essential to bridge this gap, hence the proposal of an exercise to revalidate the membership and affiliation of all youth support groups associated with the youth wing of the party
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Who We Are Area End -->
+
+        <!-- Fun Facts Area Start -->
+        <section class="fun-facts fun-facts-1 pt-70 pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="fun-facts-card">
+                            <i class="flaticon-smart-city"></i>
+                            <h2><span class="odometer" data-count="712">00</span></h2>
+                            <p>Apc Youth Members</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="fun-facts-card">
+                            <i class="flaticon-location-1"></i>
+                            <h2>
+                                <span class="odometer" data-count="29">00</span>
+                                <span class="sign-icon">+</span>
+                            </h2>
+                            <p>Active Groups</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="fun-facts-card">
+                            <i class="flaticon-park-1"></i>
+                            <h2>
+                                <span class="odometer" data-count="10">00</span>
+                                <span class="sign-icon">+</span>
+                            </h2>
+                            <p>Year Of Experience</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="fun-facts-card last-card">
+                            <i class="flaticon-award"></i>
+                            <h2>
+                                <span class="odometer" data-count="1000">00</span>
+                                <span class="sign-icon">+</span>
+                            </h2>
+                            <p>Successful Programs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fun Facts Area End -->
+
+
+        <!-- Feedback Area Start -->
+        <section class="feedback pt-100 pb-70 bg-f9fbfe">
+            <div class="container">
+                <div class="default-section-title default-section-title-middle" id="f_a_q">
+                    <h3>FAQs</h3>
+                    <p>Common answers to frequent questions</p>
+                </div>
+                <div class="section-content">
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                              How do I access the Login Page?
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                              <strong>Upon getting to the landing page, on the right hand corner of the screen, there is a link which states "Log in" or "Register". Click on the login link if you already have an account or the registration link which takes you to the registration page.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                              When was the party founded
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                            <div class="accordion-body">
+                              <strong>6 February 2013</strong>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                              Can Individuals Register
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                            <div class="accordion-body">
+                              <strong>No this portal is only for support groups that wish to register under the APC Banner.</strong>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+        <!-- feedback Area End -->
+
+        <!-- Process Area Start -->
+        <section class="precess pb-100 mt-10">
+            <div class="container">
+                <div class="default-section-title default-section-title-middle">
+                    <h3>Tackling The Process</h3>
+                    <p>This portal has been specifically design for ease of registration, following this simple three steps</p>
+                </div>
+                <div class="section-content">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="process-card">
+                                <i class="flaticon-google-docs"></i>
+                                <h4><a href="/">Application</a></h4>
+                                <p>Apply by clicking the register buttom. Follow the said instructions and input relivant details</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="process-card">
+                                <i class="flaticon-process"></i>
+                                <h4><a href="/">Processing</a></h4>
+                                <p>Our Administrators will review your details for authenticity and errors. No charge</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="process-card">
+                                <i class="flaticon-checked-1"></i>
+                                <h4><a href="/">Complete</a></h4>
+                                <p>Your Group will be stamped verfied and you will be entitled to all the benefits that we have to offer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Process Area End -->
+
+        <!-- Blog Area Start -->
+        <section class="blog ptb-100 bg-f9fbfe">
+            <div class="container">
+                <div class="default-section-title default-section-title-middle">
+                    <h3>Latest News & Updates</h3>
+                </div>
+                <div class="section-content">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="blog-card">
+                                <div class="blog-card-img">
+                                    <a href="#"><%= image_tag("My_project_blog_1.png", alt: "image")  %></a>
+                                </div>
+                                <div class="blog-card-text-area">
+                                    <div class="blog-date">
+                                        <ul>
+                                            <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
+                                            <li><i class="far fa-comments"></i> No Comment</li>
+                                            <li><i class="far fa-calendar-alt"></i> 09 Jul 2022</li>
+                                        </ul>
+                                    </div>
+                                    <h4><a href="#">Buhari to Nigerian youths: Brace up for leadership</a></h4>
+                                    <p>President Muhammadu Buhari has told Nigerian youths not to lose hope but to gear up to take up the mantle of leadership of the country some day. “With all certainty, someday you will have to take up the mantle of leadership in this country, and you should be prepared for huge responsibilities,” President Buhari said.</p>
+                                    <a class="read-more-btn" href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="blog-card">
+                                <div class="blog-card-img">
+                                    <a href="#"><%= image_tag("download (2).png", alt: "image")  %></a>
+                                </div>
+                                <div class="blog-card-text-area">
+                                    <div class="blog-date">
+                                        <ul>
+                                            <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
+                                            <li><i class="far fa-comments"></i> No Comment</li>
+                                            <li><i class="far fa-calendar-alt"></i> 02 Jul 2022</li>
+                                        </ul>
+                                    </div>
+                                    <h4><a href="#">Over 10,000 youths to get APC tickets, say Buhari, Osinbajo</a></h4>
+                                    <p>President Muhammadu Buhari and Vice President Yemi Osinbajo have assured youths that the outcomes of the first ever Progressives Youth Conference organised by APC Youths, which held at the International Conference Centre, Abuja, would be implemented.</p>
+                                    <a class="read-more-btn" href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="blog-card">
+                                <div class="blog-card-img">
+                                    <a href="#"><%= image_tag("download (3).png", alt: "image")  %></a>
+                                </div>
+                                <div class="blog-card-text-area">
+                                    <div class="blog-date">
+                                        <ul>
+                                            <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
+                                            <li><i class="far fa-comments"></i> No Comment</li>
+                                            <li><i class="far fa-calendar-alt"></i> 03 Jun 2022</li>
+                                        </ul>
+                                    </div>
+                                    <h4><a href="#">APC plans e-membership platform for massive youths registration</a></h4>
+                                    <p>Mr Dayo Israel, National Youth Leader, APC, said this on Wednesday in Abuja when he inaugurated the APC Youth Wing National Special Task Force on Revalidation and Registration of APC Youth.</p>
+                                    <a class="read-more-btn" href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Area End -->
+
+        <!-- Contact Form area Start -->
+        <section class="contact-form-area pb-100">
+            <div class="container">
+                <div class="default-section-title default-section-title-middle" id="contact_us">
+                    <h3>Get In Touch</h3>
+                    <p>Fill out the form below and we will get back to you as soon as possible. Better yet please visit out headquaters at the address below</p>
+                </div>
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="google-map pr-20">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126072.33762771422!2d7.3734936718149235!3d9.085564874689455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0a5578d4dd61%3A0x8740ea13d6a7b9f8!2sAPC%20National%20Secretariat!5e0!3m2!1sen!2sng!4v1657486106690!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="contact-form-text-area">
+                                <form id="contactForm">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Name" id="name" required data-error="Please enter your name"> 
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <input type="email" name="email" class="form-control" placeholder="Email" id="email" required data-error="Please enter your Email"> 
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <input type="text" name="phone_number" class="form-control" placeholder="Phone Number" id="phone_number" required data-error="Please enter your phone number">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <input type="text" name="msg_subject" class="form-control" placeholder="Subject" id="msg_subject" required data-error="Please enter your subject">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <textarea name="message" id="message" class="form-control" placeholder="Your Messages.." cols="30" rows="5" required data-error="Please enter your message"></textarea>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input
+                                                        name="gridCheck"
+                                                        value="I agree to the terms and privacy policy."
+                                                        class="form-check-input"
+                                                        type="checkbox"
+                                                        id="gridCheck"
+                                                        required
+                                                    >
+                                            
+                                                    <label class="form-check-label" for="gridCheck">
+                                                        I agree to the <a href="#">terms</a> and <a href="#">privacy policy</a>
+                                                    </label>
+                                                    <div class="help-block with-errors gridCheck-error"></div>
+                                                </div>
+                                            </div>
+                                        </div>         
+                                        <div class="col-md-12 col-sm-12 col-12">
+                                            <button class="default-button" type="submit"><span>Send Message</span></button>
+                                            <div id="msgSubmit" class="h6 text-center hidden"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Form Area End -->
+
+        <!-- Footer area start -->
+        <section class="footer">
+            <div class="container">
+                <div class="footer-content ptb-100">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="footer-logo-area">
+                                <a href="index.html"><%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %></a>
+                                <p>The goal of the revalidation exercise is to organize the various youth support groups into a recognizable structure strongly aligned with the objectives and strategic imperatives of the National Working Committee.</p>
+                                <div class="footer-social-area">
+                                    <ul>
+                                        <li><span>Follow Us: </span></li>
+                                        <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="footer-links footer-contact">
+                                <h3>Get In Touch</h3>
+                                <div class="footer-contact-card">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <h5>Location: </h5>
+                                    <p><a href="https://goo.gl/maps/bc3qza49szqGNZt86" target="_blank">40 Blantyre Cres, Wuse 2 904101, Abuja</a></p>
+                                </div>
+                                <div class="footer-contact-card">
+                                    <i class="fas fa-envelope"></i>
+                                    <h5>Email: </h5>
+                                    <p><a href="mailto:info@apc.com.ng">info@apc.com.ng</a></p>
+                                </div>
+                                <div class="footer-contact-card">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <h5>Location: </h5>
+                                    <p><a href="tel:+2348038989288">+234-803 898 9288</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="footer-links footer-quick-links">
+                                <h3>Quick Links</h3>
+                                <ul>
+                                    <li><i class="fas fa-angle-right"></i> <a href="#">Registration</a> </li>
+                                    <li><i class="fas fa-angle-right"></i> <a href="services.html">Objectives</a></li>
+                                    <li><i class="fas fa-angle-right"></i> <a href="blog.html">Latest News</a></li>
+                                    <li><i class="fas fa-angle-right"></i> <a href="https://apc.com.ng/">APC Main Site</a></li>
+                                    <li><i class="fas fa-angle-right"></i> <a href="/">Home</a></li>
+                                </ul>
+                            </div>  
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="footer-links footer-newsletter">
+                                <h3>Subscribe</h3>
+                                <p>Subscribe To Our Newsletter To Get Our Update News!</p>
+                                <form class="newsletter-form" data-toggle="validator">
+                                    <input type="email" class="input-newsletter form-control"  placeholder="Your Email" name="EMAIL" required autocomplete="off">
+                                    <button class="default-button news-btn">Subscribe Now</button>
+                                    <div id="validator-newsletter" class="form-result"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>Copyright © <strong>APC Youth Wing 2022</strong> All Rights Reserved. Designed by <a target="_blank" href="http://thermolinks.com/">Thermolinks</a></p>
+                </div>
+            </div>
+        </section>
+        <!-- Footer Area end -->
+
+        <!-- popup area start -->
+        <div class="popup">
+            <div class="popup-content">
+                <button class="close-btn" id="popup-close"><i class="fas fa-times"></i></button>
+                <form>
+                    <div class="input-group search-box">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- popup area end -->
+        
+        <div class="go-top"><i class="fas fa-chevron-up"></i></div>
+    
+        <!-- Link of JS files -->
+        <%= javascript_include_tag "jquery.min.js" %>
+        <%= javascript_include_tag "jquery-ui.min.js" %>
+        <%= javascript_include_tag "bootstrap.bundle.min.js" %>
+        <%= javascript_include_tag "meanmenu.js" %>
+        <%= javascript_include_tag "owl.carousel.min.js" %>
+        <%= javascript_include_tag "magnific-popup.min.js" %>
+        <%= javascript_include_tag "TweenMax.js" %>
+        <%= javascript_include_tag "nice-select.min.js" %>
+        <%= javascript_include_tag "form-validator.min.js" %>
+        <%= javascript_include_tag "contact-form-script.js" %>
+        <%= javascript_include_tag "ajaxchimp.min.js" %>
+        <%= javascript_include_tag "owl.carousel2.thumbs.min.js" %>
+        <%= javascript_include_tag "appear.min.js" %>
+        <%= javascript_include_tag "odometer.min.js" %>
+        <%= javascript_include_tag "custom.js" %>
+    </body>
+</html>

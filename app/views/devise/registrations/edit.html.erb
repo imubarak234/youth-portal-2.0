@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Link of CSS files -->
+        <%= stylesheet_link_tag "css/animate.min.css" %>
+        <%= stylesheet_link_tag "css/bootstrap.min.css" %>
+        <%= stylesheet_link_tag "css/fontawsome.min.css" %>
+        <%= stylesheet_link_tag "css/meanmenu.min.css" %>
+        <%= stylesheet_link_tag "css/owl.carousel.min.css" %>
+        <%= stylesheet_link_tag "css/nice-select.min.css" %>
+        <%= stylesheet_link_tag "css/owl.theme.default.min.css" %>
+        <%= stylesheet_link_tag "css/magnific-popup.min.css" %>
+        <%= stylesheet_link_tag "css/jquery-ui.min.css" %>
+        <%= stylesheet_link_tag "css/odometer.min.css" %>
+        <%= stylesheet_link_tag "css/style.css" %>
+        <%= stylesheet_link_tag "css/responsive.css" %>
+        <%= stylesheet_link_tag "fonts/flaticon.css" %>
+        <script src="https://kit.fontawesome.com/a6b824c9dd.js" crossorigin="anonymous"></script>
+        
+        <title>APC Youth Wing</title>
+        <link rel="icon" type="image/png" href="assets/images/fav-icon.png">
+    </head>
+    <body>
+
+        <!-- Header area start -->
+        <section class="topbar plr-100 bg-black">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="topbar-left-area">
+                            <ul>
+                                <li><a href="mailto:support@medzo.com"><i class="fas fa-envelope"></i> info@apc.com.ng</a></li>
+                                <li><a href="https://goo.gl/maps/T3S78DrzqMegjsLy6"><i class="fas fa-map-marker-alt"></i> 40 Blantyre Cres,Wuse 2 904101, Abuja</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="topbar-right-area">
+                            <ul>
+                                <li><a href="/users/sign_in"><i class="fas fa-user"></i> Login</a></li>
+                                <li>
+                                    <div class="language-select option-select-area">
+                                        <i class="fas fa-globe"></i>
+                                        <select>
+                                            <option value="1">English</option>
+                                            <option value="2">العربيّة</option>
+                                            <option value="3">Dutch</option>
+                                            <option value="4">Thai</option>
+                                            <option value="5">简体中</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Header area end -->
+
+        <!-- Navigation area start -->
+        <div class="navbar-area">
+            <!-- Menu For Mobile Device -->
+            <div class="main-responsive-nav">
+                <div class="container-fluid plr-100">
+                    <div class="mobile-nav">
+                        <a href="index.html" class="logo"><%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %></a>
+                        <ul class="menu-sidebar menu-small-device">
+                            <li><button class="popup-button"><i class="fas fa-search"></i></button></li>
+                            <li><a class="default-button" href="/users/sign_up">Register <i class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav plr-100">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <a class="navbar-brand" href="index.html">
+                            <%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %>
+                        </a>
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item ">
+                                    <a href="/" class="nav-link active">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#about_us" class="nav-link">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#f_a_q" class="nav-link">FAQs</a>
+                                </li>
+                                <li class="nav-item"><a href="#contact_us" class="nav-link">Contact Us</a></li>
+                            </ul>
+                            <div class="menu-sidebar">
+                                <ul>
+                                    <li><a class="default-button" href="/users/sign_up">Register</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation area end -->
+
+        <!-- Uni Banner Area Start -->
+        <section class="uni-banner"> 
+            <div class="container">
+                <div class="uni-banner-text-area">
+                    <h1>Register</h1>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Edit</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- uni Banner Area End -->
+
+        <!-- log in area start -->
+        <div class="login pt-70 pb-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="log-in-card">
+                            <div class="default-section-title">
+                                <h3>Create An Account</h3>
+                            </div>
+                            <div class="login-form">
+                                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                                                        <%= render "devise/shared/error_messages", resource: resource %>
+
+                      <div class="has-validation mb-3">
+                        <%= f.text_field :name , autofocus: true, autocomplete: "name",id: "validationName_new", class: "form-control py-2", 
+                        required: true, placeholder: "Full Name"%>
+                        <div class="invalid-feedback">
+                            Please Enter Name.
+                        </div>
+                      </div>   
+
+                      <div class="has-validation mb-3">
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email",id: "validationEmail_new", class: "form-control py-2", 
+                        required: true, placeholder: "Email"
+                        %>
+                        <div class="invalid-feedback">
+                            Please Enter an Email Address.
+                        </div>
+                      </div> 
+
+                      <div class="has-validation mb-3">
+                        <label for="exampleInputEmail1" class="ms-3" for= "group_size">Select Group Size</label>
+                        <%= f.select :group_size, ['National', 'Senitorial', 'State', 'LGA', 'Regional'], {}, { class: "form-control mb-3", id: "group_size", style: "background-color: rgb(249, 249, 249);" }%>
+                      </div>  
+
+                    <div class="mb-3">
+                      <%= f.password_field :password, autocomplete: "new-password" , class: "form-control py-2", id: "validationCustom03_new",
+                      required: true, placeholder: "New Password  Characters Minimum: #{@minimum_password_length}"%> 
+                      <div class="invalid-feedback">
+                        Please provide Password.
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control py-2", id: "confirmations_new",
+                      required: true, placeholder: "New Password" %>
+                      <div class="invalid-feedback">
+                        Please provide Password.
+                      </div>
+                    </div>
+
+                    <%= f.submit "Register", class: "default-button"%>
+                    <a href="/users/sign_in" class="pt-3" >Sign In</a>
+                <% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+
+
+                              <%
+=begin%>
+ <%= render "devise/shared/links" %> 
+<%
+=end%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- log in area end -->
+
+        <!-- Footer area start -->
+        <section class="footer">
+            <div class="container">
+                <div class="footer-content ptb-100">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="footer-logo-area">
+                                <a href="index.html"><%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %></a>
+                                <p>The goal of the revalidation exercise is to organize the various youth support groups into a recognizable structure strongly aligned with the objectives and strategic imperatives of the National Working Committee.</p>
+                                <div class="footer-social-area">
+                                    <ul>
+                                        <li><span>Follow Us: </span></li>
+                                        <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="footer-links footer-contact">
+                                <h3>Get In Touch</h3>
+                                <div class="footer-contact-card">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <h5>Location: </h5>
+                                    <p><a href="https://goo.gl/maps/bc3qza49szqGNZt86" target="_blank">40 Blantyre Cres, Wuse 2 904101, Abuja</a></p>
+                                </div>
+                                <div class="footer-contact-card">
+                                    <i class="fas fa-envelope"></i>
+                                    <h5>Email: </h5>
+                                    <p><a href="mailto:info@apc.com.ng">info@apc.com.ng</a></p>
+                                </div>
+                                <div class="footer-contact-card">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <h5>Location: </h5>
+                                    <p><a href="tel:+2348038989288">+234-803 898 9288</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="footer-links footer-quick-links">
+                                <h3>Quick Links</h3>
+                                <ul>
+                                    <li><i class="fas fa-angle-right"></i> <a href="#">Registration</a> </li>
+                                    <li><i class="fas fa-angle-right"></i> <a href="services.html">Objectives</a></li>
+                                    <li><i class="fas fa-angle-right"></i> <a href="blog.html">Latest News</a></li>
+                                    <li><i class="fas fa-angle-right"></i> <a href="https://apc.com.ng/">APC Main Site</a></li>
+                                    <li><i class="fas fa-angle-right"></i> <a href="/">Home</a></li>
+                                </ul>
+                            </div>  
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="footer-links footer-newsletter">
+                                <h3>Subscribe</h3>
+                                <p>Subscribe To Our Newsletter To Get Our Update News!</p>
+                                <form class="newsletter-form" data-toggle="validator">
+                                    <input type="email" class="input-newsletter form-control"  placeholder="Your Email" name="EMAIL" required autocomplete="off">
+                                    <button class="default-button news-btn">Subscribe Now</button>
+                                    <div id="validator-newsletter" class="form-result"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>Copyright © <strong>APC Youth Wing,</strong> All Rights Reserved. Designed by <a target="_blank" href="http://thermolinks.com/">Thermolinks</a></p>
+                </div>
+            </div>
+        </section>
+        <!-- Footer Area end -->
+
+        <!-- popup area start -->
+        <div class="popup">
+            <div class="popup-content">
+                <button class="close-btn" id="popup-close"><i class="fas fa-times"></i></button>
+                <form>
+                    <div class="input-group search-box">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- popup area end -->
+        
+        <div class="go-top"><i class="fas fa-chevron-up"></i></div>
+    
+        <!-- Link of JS files -->
+        <%= javascript_include_tag "jquery.min.js" %>
+        <%= javascript_include_tag "jquery-ui.min.js" %>
+        <%= javascript_include_tag "bootstrap.bundle.min.js" %>
+        <%= javascript_include_tag "meanmenu.js" %>
+        <%= javascript_include_tag "owl.carousel.min.js" %>
+        <%= javascript_include_tag "magnific-popup.min.js" %>
+        <%= javascript_include_tag "TweenMax.js" %>
+        <%= javascript_include_tag "nice-select.min.js" %>
+        <%= javascript_include_tag "form-validator.min.js" %>
+        <%= javascript_include_tag "contact-form-script.js" %>
+        <%= javascript_include_tag "ajaxchimp.min.js" %>
+        <%= javascript_include_tag "owl.carousel2.thumbs.min.js" %>
+        <%= javascript_include_tag "appear.min.js" %>
+        <%= javascript_include_tag "odometer.min.js" %>
+        <%= javascript_include_tag "custom.js" %>
+    </body>
+</html>

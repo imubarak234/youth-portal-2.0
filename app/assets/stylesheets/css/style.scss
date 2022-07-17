@@ -1,0 +1,2654 @@
+/*
+@File: Medzo Template Styles
+
+* This file contains the styling for the actual template, this
+is the file you need to edit to change the look of the
+template.
+
+This files table contents are outlined below>>>>>
+
+*******************************************
+*******************************************
+
+** - Default CSS
+** - Navbar CSS
+** - Buttons
+** - Topbar Area CSS
+** - Select Area CSS
+** - Navbar Area CSS
+** - Popup Area CSS
+** - Header Responsive Area CSS
+** - Copy Right Area CSS
+** - Go Top CSS
+** - Default button Area CSS
+** - Default Section Title Area CSS
+** - Index 01 Banner Area CSS
+** - Index 01 Services Area CSS
+** - Index 01 Who We Are Area CSS
+** - Index 01 Fun Facts Area CSS
+** - Index 01 Upcoming Events Area CSS
+** - Index 01 Explore Events Area CSS
+** - Index 01 Feedback Area CSS
+** - Index 01 team Area CSS
+** - Index 01 Process Area CSS
+** - Index 01 Blog Area CSS
+** - Index 02 Banner Area CSS
+** - Index 02 Process Area CSS
+** - Index 02 About Area CSS
+** - Index 02 Services Area CSS
+** - Index 02 Video Area CSS
+** - Index 02 Fun Facts Area CSS
+** - Index 02 Explore City Area CSS
+** - Index 02 Feedback Area CSS
+** - Index 03 Banner Area CSS
+** - Index 03 About Area CSS
+** - Inner Area CSS
+** - Inner Service area CSS
+** - FAQ Area CSS
+** - Pagination area CSS
+** - Log In Page CSS
+** - Terms & Privacy area CSS
+** - Error Area CSS
+** - Details Page Area CSS
+** - Sidebar Area CSS
+** - Inner Projects Area CSS
+** - Blog Details Page CSS
+** - Contact Page CSS
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+    --fontFamily: 'Montserrat', sans-serif;
+    --fontFamily2: 'Roboto', sans-serif;
+    --mainColor: #00aa55;
+    --secondColor: #00aa5530;
+    --whiteColor: #ffffff;
+    --blackColor: #1f2428;
+    --paragraphColor: #666666;
+    --card-title-fontSize: 22px;
+    --fontSize: 16px;
+    --transition: 0.5s;
+    --boxShadow:  rgba(80, 79, 79, 0.1) 0px 0px 16px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fontFamily);
+}
+a {
+    transition: var(--transition);
+    color: var(--blackColor);
+    text-decoration: none;
+    outline: 0 !important;
+    &:hover {
+        color: var(--mainColor);
+        text-decoration: none;
+    }
+}
+:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+p {
+    font-family: var(--fontFamily2);
+    color: var(--paragraphColor);
+    font-size: var(--fontSize);
+    margin-bottom: 15px;
+    line-height: 1.8;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.ptb-100 {
+    padding: {
+        top: 100px;
+        bottom: 100px;
+    }
+}
+.pt-100 {
+    padding-top: 100px;
+}
+.pb-100 {
+    padding-bottom: 100px;
+}
+.ptb-70 {
+    padding: {
+        top: 70px;
+        bottom: 70px;
+    }
+}
+.pt-70 {
+    padding-top: 70px;
+}
+.pb-70 {
+    padding-bottom: 70px;
+}
+.pt-30 {
+    padding-top: 0px;
+}
+.pl-20 {
+    padding-left: 20px;
+}
+.pr-20 {
+    padding-right: 20px;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.mlr-15 {
+    margin: {
+        left: 15px;
+        right: 15px;
+    };
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+.section-content {
+    margin-top: 20px;
+}
+.d-table {
+    width: 100%;
+    height: 100%;
+    &-cell {
+        vertical-align: middle;
+    }
+}
+.sticky {
+    position: sticky !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    padding: 0px ;
+    background-color: var(--whiteColor) !important;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
+    animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+}
+
+.plr-100 {
+    padding: {
+        left: 50px;
+        right: 50px;
+    };
+}
+.mt-10 {
+    margin-top: -10px;
+}
+.bg-black {
+    background-color: var(--blackColor)
+}
+.bg-f9fbfe {
+    background-color: #f9fbfe;
+}
+.bg-222222 {
+    background-color: #222222;
+}
+
+@import './pager-scss/header';
+@import './pager-scss/footer';
+
+.main-nav nav .navbar-nav .nav-item .dropdown-menu li a {
+    &::before {
+        content: "\f0da";
+        font-family: "Font Awesome 5 Free"
+    }
+}
+
+/*================================================
+Default button Area CSS
+=================================================*/
+.default-button {
+    padding: 12px 40px;
+    border-radius: 0px;
+    position: relative;
+    display: inline-block;
+    transition: .5s ease-in-out;
+    border: 1px solid var(--mainColor);
+    overflow: hidden !important;
+    color: var(--whiteColor);
+    background-color: var(--mainColor);
+    border-radius: 10px;
+    i {
+        transition: .5s ease-in-out;
+        font-size: 15px !important;
+        margin-left: 5px;
+    }
+    &::before {
+        content: '';
+        width: 0px;
+        height: 100%;
+        overflow: hidden;
+        transition: .5s ease-in-out;
+        background-color: var(--mainColor);
+        position: absolute;
+        right: 0;
+        left: unset;
+        top: 0;
+        z-index: 0;
+        transform-origin: right;
+    }
+    span {
+        position: relative;
+        z-index: 1;
+    }
+    font: {
+        size: 15px;
+        weight: 700;
+        family: var(--fontFamily2);
+    };
+    &:hover {
+        border-radius: 20px 5px 20px 5px;
+        color: var(--whiteColor);
+        background-color: var(--blackColor);
+    }
+}
+.default-button-2 {
+    border-radius: 25px;
+}
+.default-button-3 {
+    background-color: var(--whiteColor);
+    color: var(--mainColor);
+    &:hover {
+        color: var(--whiteColor);
+        background-color: var(--mainColor);
+        i {
+            color: var(--whiteColor) !important;
+        }
+    }
+}
+.read-more-btn {
+    font: {
+        size: 15px;
+        weight: 600;
+        family: var(--fontFamily2);
+    };
+    i {
+        font-size: 14px !important;
+        margin-left: 2px;
+        position: relative;
+        top: 1px;
+    }
+}
+.default-button-middle {
+    display: table;
+    margin: {
+        left: auto;
+        right: auto;;
+    };
+}
+
+/*================================================
+Default Section Title Area CSS
+=================================================*/
+.default-section-title {
+    span {
+        color: var(--mainColor);
+        display: inline-block;
+        margin-bottom: 14px;
+        font: {
+            size: 15px;
+            weight: 600;
+            family: var(--fontFamily2);
+        };
+    }
+    h3 {
+        margin-bottom: 0px;
+        line-height: 1.2;
+        font: {
+            size: 38px;
+            weight: 700;
+        };
+    }
+    p {
+        margin-top: 14px;
+    }
+}
+.default-section-title-middle {
+    max-width: 720px;
+    text-align: center;
+    margin: {
+        left: auto;
+        right: auto;
+    };
+}
+.default-section-title-2 {
+    a {
+        float: right;
+        line-height: 1;
+        color: var(--mainColor);
+        font: {
+            size: 15px;
+            weight: 500;
+            family: var(--fontFamily2);
+        };
+    }
+}
+
+/*================================================
+Index 01 Banner Area CSS
+=================================================*/
+.banner-text-area {
+    h6 {
+        color: var(--mainColor);
+        margin-bottom: 12px;
+        font: {
+            size: 15px;
+            weight: 500;
+            family: var(--fontFamily2);
+        };
+    }
+    h1 {
+        color: var(--whiteColor);
+        margin-bottom: 15px;
+        font: {
+            size: 54px;
+            weight: 700;
+        };
+    }
+    p {
+        color: rgba($color: #ffffff, $alpha: 0.8);
+    }
+    .default-button {
+        margin-top: 10px;
+    }
+}
+.banner-text-area-1 {
+    max-width: 850px;
+    h1,p {
+        color: var(--blackColor);
+    }
+    p {
+        max-width: 720px;
+    }
+}
+.banner-img-area-1 {
+    position: relative;
+    z-index: 1;
+    a {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mainColor);
+        animation: pulse 2s infinite linear forwards;
+        background-color: var(--whiteColor);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: {
+            left: 7.5px;
+        };
+        transition: var(--transition);
+
+        &:hover {
+            background-color: var(--mainColor);
+            color: var(--whiteColor);
+        }
+    }
+}
+.main-banner {
+    position: relative;
+    overflow: hidden;
+    padding: {
+        top: 50px;
+        bottom: 50px;
+    };
+    &::before {
+        content: '';
+        height: 100%;
+        width: 30%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url('../images/banner-1-bg.jpg');
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    &::after {
+        content: '';
+        height: 100%;
+        width: 30%;
+        background-color: rgba($color: #d5262d, $alpha: 0.9);
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .banner-social-icons {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: center;
+        z-index: 1;
+
+        ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            a {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+                margin: 5px 0px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--mainColor);
+                border: 1px solid #3d2828;
+                transition: .5s ease-in-out;
+                &:hover {
+                    color: var(--whiteColor);
+                    border-color: var(--mainColor);
+                    background-color: var(--mainColor);
+                }
+            }
+        }
+    }
+    .banner-comment {
+        a {
+            color: var(--paragraphColor);
+        }
+        font:  {
+            size: 14px;
+            weight: 500;
+            family: var(--fontFamily2);
+        };
+        position: absolute;
+        left: 3%;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+        transform-origin: left center;
+    }
+}
+
+/*================================================
+Index 01 Services Area CSS
+=================================================*/
+.service-card {
+    box-shadow: var(--boxShadow);
+    margin-top: 30px;
+    .service-card-img {
+        position: relative;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 30px;
+            background-color: var(--whiteColor);
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+        }
+        i {
+            width: 60px;
+            height: 60px;
+            font-size: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--mainColor);
+            transition: .5s ease-in-out;
+            background-color: var(--whiteColor);
+            box-shadow: var(--boxShadow);
+            position: absolute;
+            bottom: 0;
+            left: 30px;
+            z-index: 1;
+            &::after {
+                content: '';
+                width: 0%;
+                height: 0%;
+                border-radius: 50%;
+                transition: .5s ease-in-out;
+                background-color: var(--mainColor);
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 0;
+            }
+            &::before {
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+    .service-card-text {
+        padding: 20px 25px 25px;
+        background-color: var(--whiteColor);
+        h4 {
+            margin-bottom: 12px;
+            font: {
+                size: var(--card-title-fontSize);
+                weight: 600;
+            };
+        }
+        p {
+            margin-bottom: 12px;
+        }
+    }
+    &:hover {
+        .service-card-img {
+            i {
+                transform: rotateY(180deg);
+                color: var(--whiteColor);
+                &::after {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.service-slider-area-1 {
+    position: relative;
+    .owl-nav {
+        width: 106%;
+        z-index: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: .5s ease-in-out;
+            box-shadow: 0px 0px 20px -3px #d6d6d6;
+            color: var(--mainColor) !important;
+            background-color: var(--whiteColor) !important;
+            &:hover {
+                color: var(--whiteColor) !important;
+                background-color: var(--mainColor) !important;
+            }
+        }
+    }
+    .owl-next {
+        float: right;
+    }
+}
+
+/*================================================
+Index 01 Who We Are Area CSS
+=================================================*/ 
+.why-we-img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/my_project.jpg');
+    height: 100%;
+    img {
+        display: none;
+    }
+}
+.why-we-text-area {
+    padding: 30px 0px 30px 50px;
+    background-color: var(--whiteColor);
+    position: relative;
+    margin: {
+        top: 50px;
+        bottom: 50px;
+        left: -100px;
+    };
+    .why-we-text-list {
+        margin-top: 25px;
+        position: relative;
+        padding-left: 50px;
+        i {
+            font-size: 35px;
+            color: var(--mainColor);
+            position: absolute;
+            left: 0;
+        }
+        h4 {
+            margin-bottom: 12px;
+            font: {
+                size: var(--card-title-fontSize);
+                weight: 600;
+            };
+        }
+        ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            li {
+                margin-top: 12px;
+                position: relative;
+                padding-left: 20px;
+                font: {
+                    weight: 500;
+                    size: var(--fontSize);
+                    family: var(--fontFamily2);
+                };
+                &::before {
+                    content: '';
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    transition: .5s ease-in-out;
+                    border: 2px solid var(--mainColor);
+                    background-color: var(--mainColor);
+                    position: absolute;
+                    left: 0;
+                    top: 7px;
+                }
+                &:hover {
+                    &::before {
+                        background-color: var(--secondColor);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*================================================
+Index 01 Fun Facts Area CSS
+=================================================*/ 
+.fun-facts-1 {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/pexels-emmanuel-ikwuegbu-8445454.jpg');
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.85);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+}
+.fun-facts-card {
+    margin-top: 30px;
+    padding-left: 85px;
+    position: relative;
+    &::before {
+        content: '';
+        width: 1px;
+        height: 80%;
+        background-color: rgba($color: #00aa55, $alpha: 0.5);
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    i {
+        width: 70px;
+        height: 70px;
+        font-size: 40px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mainColor);
+        transition: .5s ease-in-out;
+        background-color: var(--whiteColor);
+        position: absolute;
+        left: 0;
+    }
+    h2 {
+        margin-bottom: 0;
+        color: var(--whiteColor);
+        font: {
+            size: 36px;
+            weight: 700;
+        };
+        .sign-icon {
+            font-size: 30px;
+            position: relative;
+            top: 1.8px;
+        }
+    }
+    p {
+        color: var(--whiteColor);
+        font-size: 14px;
+    }
+    &:hover {
+        i {
+            transform: rotateY(180deg);
+            transform-origin: center;
+            color: var(--whiteColor);
+            background-color: var(--mainColor);
+        }
+    }    
+}
+.last-card {
+    &::before {
+        display: none;
+    }
+}
+
+/*================================================
+Index 01 Upcoming Events Area CSS
+=================================================*/ 
+.events-card {
+    position: relative;
+    margin-top: 30px;
+    &::before {
+        content: '';
+        width: 0%;
+        height: 100%;
+        transition: .5s ease-in-out;
+        background-image: linear-gradient(to top, #000000, #000000b7, #00000020);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+    .events-card-text {
+        transition: .5s ease-in-out;
+        padding: 30px 25px;
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            li {
+                display: inline-block;
+                margin-right: 10px;
+                color: var(--mainColor);
+                font: {
+                    size: 15px;
+                    weight: 500;
+                    family: var(--fontFamily2);
+                };
+                &:last-child {
+                    margin-right: 0px;
+                    color: var(--whiteColor);
+                }
+            }
+        }
+        h4 {
+            margin: {
+                top: 12px;
+                bottom: 12px;
+            };
+            font: {
+                size: var(--card-title-fontSize);
+                weight: 600;
+            };
+            a {
+                color: var(--whiteColor);
+                &:hover {
+                    color: var(--mainColor);
+                }
+            }
+        }
+        p {
+            color: var(--mainColor);
+            font-size: 14px;
+            margin-bottom: 8px;
+            i {
+                margin-right: 3px;
+                font-size: 13px;
+            }
+            a {
+                color: rgba($color: #ffffff, $alpha: 0.8);
+            }
+        }
+        .read-more-btn {
+            color: var(--whiteColor);
+            &:hover {
+                color: var(--mainColor);
+            }
+        }
+    }
+    &:hover {
+        &::before {
+            width: 100%;
+        }
+        .events-card-text {
+            opacity: 1;
+            transition-delay: .3s;
+        }
+    }
+}
+.events-slider-area {
+    position: relative;
+    .owl-nav {
+        width: 106%;
+        z-index: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: .5s ease-in-out;
+            box-shadow: 0px 0px 20px -3px #d6d6d6;
+            color: var(--mainColor) !important;
+            background-color: var(--whiteColor) !important;
+            &:hover {
+                color: var(--whiteColor) !important;
+                background-color: var(--mainColor) !important;
+            }
+        }
+    }
+    .owl-next {
+        float: right;
+    }
+}
+
+/*================================================
+Index 01 Explore Events Area CSS
+=================================================*/ 
+.explore-events-img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/ww2.jpg');
+    height: 100%;
+    img {
+        display: none;
+    }
+}
+.explore-events-text-area {
+    padding: 30px 50px 30px 0px;
+    background-color: var(--whiteColor);
+    position: relative;
+    margin: {
+        top: 50px;
+        bottom: 50px;
+        right: -100px;
+    };
+    .explore-events-text-list {
+        margin-top: 25px;
+        position: relative;
+        padding-left: 50px;
+        i {
+            font-size: 35px;
+            color: var(--mainColor);
+            position: absolute;
+            left: 0;
+        }
+        h4 {
+            margin-bottom: 12px;
+            font: {
+                size: var(--card-title-fontSize);
+                weight: 600;
+            };
+        }
+        ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            li {
+                margin-top: 12px;
+                position: relative;
+                padding-left: 20px;
+                font: {
+                    weight: 500;
+                    size: var(--fontSize);
+                    family: var(--fontFamily2);
+                };
+                &::before {
+                    content: '';
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    transition: .5s ease-in-out;
+                    border: 2px solid var(--mainColor);
+                    background-color: var(--mainColor);
+                    position: absolute;
+                    left: 0;
+                    top: 7px;
+                }
+                &:hover {
+                    &::before {
+                        background-color: var(--secondColor);
+                    }
+                }
+            }
+        }
+    }
+}
+.explore-event {
+    .section-content {
+        margin-top: 60px;
+    }
+}
+
+/*================================================
+Index 01 Feedback Area CSS
+=================================================*/ 
+.feedback-card {
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: var(--boxShadow);
+    background-color: var(--whiteColor);
+    position: relative;
+    border-radius: 5px;
+
+    .flaticon-quotation {
+        font-size: 45px;
+        color: var(--secondColor);
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        z-index: 0;
+    }
+    p {
+        margin-top: 15px;
+        color: var(--blackColor);
+        font: {
+            size: 16px;
+            weight: 500;
+            style: italic;
+        };
+    }
+    .feedback-intro-area {
+        margin-top: 5px;
+        display: inline-flex;
+        align-items: center;
+        img {
+            margin-right: 15px;
+            border-radius: 50%;
+            width: fit-content !important;
+        }
+        h5 {
+            margin-bottom: 8px;
+            font: {
+                size: 18px;
+                weight: 700;
+            };
+        }
+        span {
+            color: var(--mainColor);
+            font: {
+                size: 14px;
+                family: var(--fontFamily2);
+            };
+        }
+    }
+}
+.stars {
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li {
+            display: inline-block;
+            font-size: 14px;
+            color: var(--mainColor);
+        }
+    }
+}
+.feedback-slider-area {
+    position: relative;
+    .owl-nav {
+        width: 106%;
+        z-index: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: .5s ease-in-out;
+            box-shadow: 0px 0px 20px -3px #d6d6d6;
+            color: var(--mainColor) !important;
+            background-color: var(--whiteColor) !important;
+            &:hover {
+                color: var(--whiteColor) !important;
+                background-color: var(--mainColor) !important;
+            }
+        }
+    }
+    .owl-next {
+        float: right;
+    }
+}
+
+/*================================================
+Index 01 team Area CSS
+=================================================*/ 
+.team-card {
+    margin-top: 30px;
+    .team-card-img  {
+        position: relative;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 0%;
+            transition: .5s ease-in-out;
+            background-image: linear-gradient(to top, #000000, #00000050, #00000000);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        .team-social-icons {
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease-in-out;
+            text-align: center;
+            position: absolute;
+            bottom: 0px;
+            z-index: 0;
+            ul {
+                margin: 0px;
+                padding: 0px;
+                list-style: none;
+                li {
+                    display: inline-block;
+                    a {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: var(--mainColor);
+                        transition: .5s ease-in-out;
+                        background-color: var(--whiteColor);
+                        &:hover {
+                            color: var(--whiteColor);
+                            background-color: var(--mainColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .team-card-text {
+        text-align: center;
+        padding: 25px 25px 0px;
+
+        h4 {
+            margin-bottom: 8px;
+            font: {
+                size: var(--card-title-fontSize);
+                weight: 600;
+            };
+        }
+        p {
+            font-size: 14px;
+            color: var(--mainColor);
+        }
+    }
+    &:hover {
+        .team-card-img {
+            &::before {
+                height: 100%;
+            }
+            .team-social-icons {
+                transition-delay: .3s;
+                bottom: 25px;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+/*================================================
+Index 01 Process Area CSS
+=================================================*/ 
+.process-card {
+    margin-top: 30px;
+    padding: 30px 25px 25px;
+    background-color: var(--whiteColor);
+    box-shadow: var(--boxShadow);
+    position: relative;
+    padding-left: 105px;
+    i {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mainColor);
+        transition: .5s ease-in-out;
+        box-shadow: var(--boxShadow);
+        background-color: var(--whiteColor);
+        position: absolute;
+        left: 25px;
+    }
+    h4 {
+        margin-bottom: 10px;
+        font: {
+            size: var(--card-title-fontSize);
+            weight: 600;
+        };
+    }
+    &:hover {
+        i {
+            transform: rotateY(180deg);
+            transform-origin: center;
+            color: var(--whiteColor);
+            background-color: var(--mainColor);
+        }
+    }  
+}
+
+/*================================================
+Index 01 Blog Area CSS
+=================================================*/ 
+.blog-card {
+    margin-top: 30px;
+    .blog-card-img {
+        overflow: hidden;
+        img {
+            width: 100%;
+            transition: .5s ease-in-out;
+        }
+    }
+    .blog-card-text-area {
+        padding: 30px 25px;
+        box-shadow: var(--boxShadow);
+        background-color: var(--whiteColor);
+        h4 {
+            margin: {
+                top: 18px;
+                bottom: 12px;
+            };
+            font: {
+                size: var(--card-title-fontSize);
+                weight: 600;
+            };
+        }
+        p {
+            margin-bottom: 12px;
+        }
+    }
+    &:hover {
+        .blog-card-img {
+            img {
+                transform: scale(1.1) rotate(2deg);
+            }
+        }
+    }
+}
+.blog-date {
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li {
+            display: inline-block;
+            position: relative;
+            margin-right: 15px;
+            font: {
+                size: 14px;
+                family: var(--fontFamily2);
+            };
+            i {
+                margin-right: 3px;
+                color: var(--mainColor);
+            }
+            &:last-child {
+                margin-right: 0px;
+                &::before {
+                    display: none;
+                }
+            }
+            &::before {
+                content: '/';
+                position: absolute;
+                right: -12px;
+                
+            }
+        }
+    }
+}
+
+/*================================================
+Index 02 Banner Area CSS
+=================================================*/
+.home-banner {
+    background-color: #222222;
+    .banner-text-area {
+        h1 {
+            font-size: 48px;
+        }
+        p {
+            max-width: 720px;
+        }
+    }
+}
+.home-banner-area {
+    padding: 0px 20px 20px;
+    position: relative;
+    margin-left: 30px;
+    &::before {
+        content: '';
+        width: 100%;
+        height: 50%;
+        background-color: var(--whiteColor);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        border-radius: 10px;
+    }
+    img {
+        position: relative;
+        z-index: 1;
+        border-radius: 10px;
+    }
+}
+
+/*================================================
+Index 02 Process Area CSS
+=================================================*/
+.process-card-2 {
+    transition: .5s ease-in-out;
+    h4,a,p {
+        transition: .5s ease-in-out;
+    }
+    &:hover {
+        background-color: var(--mainColor);
+        i {
+            color: var(--mainColor);
+            background-color: var(--whiteColor);
+        }
+        h4,a,p {
+            color: var(--whiteColor);
+        }
+    }
+}
+
+/*================================================
+Index 02 About Area CSS
+=================================================*/
+.about-text-area-2 {
+    padding: 0px;
+    margin: 0;
+    background-color: transparent;
+    padding-left: 25px;
+}
+.about-img {
+    position: relative;
+    height: 100%;
+    .a-img-1 {
+        position: relative;
+        max-width: 60%;
+    }
+    .a-img-2 {
+        position: absolute;
+        max-width: 55%;
+        right: 0;
+        bottom: 0;
+    }
+    .a-img-3 {
+        position: absolute;
+        top: 0%;
+        right: 5%;
+        border-radius: 50%;
+    }
+}
+
+/*================================================
+Index 02 Services Area CSS
+=================================================*/
+.service-2 {
+    .default-section-title {
+        h3,p {
+            color: var(--whiteColor);
+        }
+    }
+}
+.service-card-2 {
+    padding: 0px 25px 25px;
+    margin-top: 60px;
+    background-color: var(--whiteColor);
+    i {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mainColor);
+        box-shadow: var(--boxShadow);
+        transition: .5s ease-in-out;
+        background-color: var(--whiteColor);
+        position: relative;
+        margin-top: -40px;
+        margin-bottom: 20px;
+    }
+    h4 {
+        margin-bottom: 12px;
+        font: {
+            size: var(--card-title-fontSize);
+            weight: 600;
+        };
+    }
+    p {
+        margin-bottom: 12px;
+    }
+    &:hover {
+        i {
+            transform: rotateY(180deg);
+            color: var(--whiteColor);
+            background-color: var(--mainColor);
+        }
+    }
+}
+.service-slider-area {
+    position: relative;
+    .owl-nav {
+        width: 106%;
+        z-index: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: .5s ease-in-out;
+            color: var(--mainColor) !important;
+            background-color: var(--whiteColor) !important;
+            &:hover {
+                color: var(--whiteColor) !important;
+                background-color: var(--mainColor) !important;
+            }
+        }
+    }
+    .owl-next {
+        float: right;
+    }
+}
+
+/*================================================
+Index 02 Video Area CSS
+=================================================*/
+.video {
+    position: relative;
+    &::before {
+        content: '';
+        width: 100%;
+        height: 50%;
+        background-color: #222222;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+.video-area {
+    position: relative;
+    z-index: 1;
+    a {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mainColor);
+        background-color: var(--whiteColor);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse 2s infinite linear forwards;
+        padding: {
+            left: 10px
+        };
+        
+    }
+}
+
+/*================================================
+Index 02 Fun Facts Area CSS
+=================================================*/
+.fun-facts-card-2 {
+    i {
+        box-shadow: var(--boxShadow);
+    }
+    h2 {
+        color: var(--blackColor);
+    }
+    p {
+        color: var(--paragraphColor);
+    }
+}
+
+/*================================================
+Index 02 Explore City Area CSS
+=================================================*/
+.about-img-2 {
+    .a-img-1 {
+        float: right;
+        max-width: 50%;
+    }
+    .a-img-2 {
+        left: 0;
+        right: unset;
+        max-width: 60%;
+    }
+    .a-img-3 {
+        bottom: 0;
+        top: unset;
+    }
+}
+.explore-2 {
+    .default-section-title-middle {
+        display: block;
+        margin-bottom: 40px;
+    }
+}
+
+/*================================================
+Index 02 Feedback Area CSS
+=================================================*/
+.feedback-card-2 {
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: var(--boxShadow);
+    background-color: var(--whiteColor);
+    position: relative;
+    .flaticon-quotation {
+        font-size: 45px;
+        color: var(--secondColor);
+        position: absolute;
+        bottom: 00px;
+        right: 30px;
+        z-index: 0;
+    }
+    p {
+        margin-top: 10px;
+        color: var(--blackColor);
+        font: {
+            size: 16px;
+            weight: 500;
+            style: italic;
+        };
+    }
+    .feedback-intro-area {
+        margin-top: 0px;
+        display: inline-flex;
+        align-items: center;
+        img {
+            margin-right: 15px;
+            border-radius: 50%;
+            width: fit-content !important;
+            transition: .5s ease-in-out;
+            border: 2px solid var(--blackColor);
+        }
+        h5 {
+            margin-bottom: 8px;
+            font: {
+                size: 18px;
+                weight: 700;
+            };
+        }
+        span {
+            color: var(--blackColor);
+            transition: .5s ease-in-out;
+            font: {
+                size: 14px;
+                family: var(--fontFamily2);
+            };
+        }
+    }
+    &:hover {
+        .feedback-intro-area {
+            span {
+                color: var(--mainColor);
+            }
+            img {
+                border-color: var(--mainColor);
+            }
+        }
+    }
+}
+.feedback-slider-area-2  {
+    .owl-dots {
+        text-align: center;
+        .owl-dot {
+            width: 12px;
+            height: 12px;
+            margin: 0px 3px;
+            border-radius: 50%;
+            transition: .5s ease-in-out;
+            border: 1px solid var(--blackColor) !important;
+        }
+        .active {
+            border-color: var(--mainColor) !important;
+        }
+    }
+}
+
+/*================================================
+Index 03 Banner Area CSS
+=================================================*/
+.banner {
+    overflow: hidden;
+    padding-top: 25px;
+
+    .container-fluid {
+        padding: {
+            left: 70px;
+            right: 0;
+        };
+    }
+}
+.banner-img-3 {
+    img {
+        width: 100%;
+        position: relative;
+        right: -50px;
+    }
+    position: relative;
+    z-index: 1;
+    a {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--whiteColor);
+        animation: pulse 2s infinite linear forwards;
+        background-color: var(--mainColor);
+        position: absolute;
+        top: 50%;
+        left: 3%;
+        transform: translateY(-50%);
+        padding: {
+            left: 10px
+        };
+    }
+}
+.banner-text-area-3 {
+    position: relative;
+    top: -15px;
+
+    h1 {
+        font-size: 48px;
+        color: var(--blackColor);
+    }
+    p {
+        max-width: 720px;
+        color: var(--blackColor);
+    }
+}
+
+/*================================================
+Index 03 About Area CSS
+=================================================*/
+.about-img-3 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/about/a3-1.jpg');
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    img {
+        display: none;
+    }
+}
+.ai-2-2 {
+    background-image: url('../images/about/a3-2.jpg');
+    border-radius: 10px;
+}
+.about {
+    position: relative;
+    .shape {
+        position: absolute;
+        top: 13%;
+        left: 13%;
+    }
+}
+.about-3 {
+    .shape {
+        left: unset;
+        right: 13%;
+        top: 26%;
+    }
+    .section-content {
+        margin-top: 50px;
+    }
+}
+
+/*================================================
+Inner Area CSS
+=================================================*/
+.uni-banner {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../images/pexels-mcbarth™-obeya-3172830.jpg');
+    position: relative;
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+    }
+}
+.uni-banner-text-area{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: {
+        top: 100px;
+        bottom: 100px;
+    };
+    h1{
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--whiteColor);
+        font-family: var(--fontFamily);
+        margin-bottom: 15px;
+    }
+    ul{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li{
+            display: inline-block;
+            margin: 0px 10px;
+            position: relative;
+            color: var(--mainColor);
+            font: {
+                weight: 500;
+                size: 15px;
+                family: var(--fontFamily);
+            };
+            a{
+                color: var(--whiteColor);
+            }
+            &::after{
+                content: '\f105';
+                font-size: 12px;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 600;
+                position: absolute;
+                right: -18px;
+                top: 55%;
+                transform: translateY(-50%);
+            }
+            &:last-child{
+                &::after{
+                    display: none;
+                }
+            }
+            &:first-child {
+                margin-left: 0px;
+            }
+        }
+    }
+}
+
+/*================================================
+Inner Service area CSS
+=================================================*/
+.service-4 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../images/footer-bg.jpg');
+    position: relative;
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+    }
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+    .default-section-title {
+        h3,p {
+            color: var(--whiteColor);
+        }
+    }
+
+}
+
+
+/*================================================
+FAQ Area CSS
+=================================================*/
+.faq {
+    .accordion-item {
+        background-color: transparent;
+        margin-top: 15px;
+        border: 1px solid #eeeeee !important;
+        .accordion-body {
+            background-color: transparent;
+            padding-top: 15px;
+            p {
+                font-size: var(--fontSize);
+                font-family: var(--fontFamily2);
+            }
+        }
+    }
+    .accordion-button {
+        border: 0px !important;
+        min-height: 55px;
+        position: relative;
+        color: var(--blackColor) !important;
+        box-shadow: none !important;
+        background-color: var(--whiteColor);
+        padding: 15px 15px 15px 65px;
+        border-radius: 5px !important;
+        font: {
+            size: 18px;
+            weight: 500;
+            family: var(--fontFamily2);
+        };
+        i {
+            width: 50px;
+            height: 100%;
+            font-size: 25.5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            transition: .5s ease-in-out;
+            background-color: #020202;
+            position: absolute;
+            left: 0px;
+        }
+        &::after {
+            display: none;
+        }
+        .fa-minus-circle {
+            opacity: 0;
+        }
+        &:not(.collapsed) {
+            background-color: var(--mainColor);
+            color: var(--whiteColor) !important;
+            i {
+                transform: rotateY(180deg);
+                background-color: var(--mainColor);
+            }
+            .fa-minus-circle {
+                opacity: 1;
+            }
+        }
+    }
+}
+.faq-img-area {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/faq-bg.jpg');
+    height: 100%;
+    position: relative;
+    img {
+        display: none;
+    }
+    a {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mainColor);
+        background-color: var(--whiteColor);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: {
+            left: 10px
+        };
+    }
+}
+.faq-text-area {
+    margin: {
+        top: 50px;
+        bottom: 50px
+    };
+    padding: 50px 0px 50px 50px;
+    background-color: var(--whiteColor);
+    margin-left: -100px;
+    position: relative;
+    z-index: 1;
+}
+
+/*================================================
+Pagination area CSS
+=================================================*/
+.paginations {
+    display: table;
+    margin: {
+        left: auto;
+        right: auto;
+    };
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li {
+            display: inline-block;
+            text-align: center;
+            a {
+                width: 35px;
+                height: 35px;
+                margin: 0px 3px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--blackColor);
+                border: 1px solid var(--secondColor);
+                background-color: var(--whiteColor);
+                font: {
+                    size: 15px;
+                    weight: 600;
+                    family: var(--fontFamily2);
+                };
+                &:hover {
+                    color: var(--whiteColor);
+                    background-color: var(--mainColor);
+                }
+            }
+            .active {
+                color: var(--whiteColor);
+                background-color: var(--mainColor);
+            }
+        }
+    }
+}
+
+/*================================================ 
+Log In Page CSS
+=================================================*/
+.login-form{
+    margin-top: 20px;
+    form{
+        .form-control{
+            background-color: #f9f9f9;
+            border: 0px solid var(--secondColor);
+            padding: 10px 15px;
+            margin-top: 20px;
+        }
+        .form-check{
+            label{
+                font-weight: 400;
+                font-size: 14px;
+                font-family: var(--fontFamily2);
+            }
+        }
+        .default-button{
+            width: 100%;
+        }
+    }
+    p{
+        font-size: 14px;
+        font-style: italic;
+        font-family: var(--fontFamily2);
+    }
+}
+.form-check-input:checked {
+    border-color: var(--mainColor);
+    background-color: var(--mainColor);
+}
+.log-in-card {
+    padding: 30px;
+    margin-top: 30px;
+    background-color: var(--whiteColor);
+    box-shadow: var(--boxShadow);
+    border-radius: 10px;
+    .default-section-title {
+        h3 {
+            font-size: var(--card-title-fontSize);
+        }
+    }
+    .login-p {
+        margin-top: 15px;
+        text-align: center;
+        a {
+            color: var(--mainColor);
+        }
+    }
+}
+.login-footer-area {
+    text-align: center;
+    span {
+        text-align: center;
+        position: relative;
+        display: block;
+        margin: 15px 0px;
+        font: {
+            size: 15px;
+            weight: 600;
+            family: var(--fontFamily2);
+        };
+        &::before {
+            content: '';
+            width: 47%;
+            height: .5px;
+            background-color: #70707050;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+        &::after {
+            content: '';
+            width: 47%;
+            height: .5px;
+            background-color: #70707050;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+    }
+    button {
+        border: 0px;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px 15px;
+        color: var(--mainColor);
+        border: 1px solid var(--secondColor);
+        background-color: var(--whiteColor);
+        font:  {
+            size: 15px;
+            weight: 00;
+            family: var(--fontFamily2);
+        };
+    }
+    p {
+        font-size: 15px;
+        a {
+            color: var(--mainColor);
+        }
+    }
+}
+
+/*================================================
+Terms & Privacy area CSS
+=================================================*/
+.terms{
+    margin-bottom: -15px;
+    strong{
+        color: var(--blackColor);
+    }
+    a{
+        color: var(--mainColor);
+    }
+    h1,h2,h3,h4,h5{
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-family: var(--fontFamily);
+        font-weight: 600;
+    }
+    h6{
+        font-size: 20px;
+        font-weight: 600;
+        font-family: var(--fontFamily);
+    }
+    h1{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 28px;
+    }
+    h3{
+        font-size: 26px;
+    }
+    h4{
+        font-size: 24px;
+    }
+    h5{
+        font-size: 22px;
+    }
+    p {
+        font: {
+            size: var(--fontSize2);
+            family: var(--fontFamily2);
+        };
+    }
+    ul{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li{
+            margin: 10px 0px;
+            font-size: var(--fontSize);
+            color: var(--paragraphColor);
+            font-family: var(--fontFamily2);
+            span{
+                font-weight: 700;
+                margin-right: 8px;
+                color: var(--blackColor);
+            }
+        }
+    }
+    .payment{
+        li{
+            position: relative;
+            padding-left: 20px;
+            &::before{
+                content: '';
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: var(--mainColor);
+                position: absolute;
+                left: 0;
+                top: 6px;
+            }
+        }
+    }
+}
+
+/*================================================
+Error Area CSS
+=================================================*/
+.error {
+    border-top: 1px solid #eeeeee;
+}
+.error-content {
+    max-width: 600px;
+    text-align: center;
+    margin: {
+        left: auto;
+        right: auto;
+    };
+    h4 {
+        margin: {
+            top: 25px;
+            bottom: 12px;
+        };
+        font: {
+            size: 36px;
+            weight: 700;
+        };
+    }
+    .default-button {
+        margin-top: 8px;
+    }
+}
+
+/*================================================
+Details Page Area CSS
+=================================================*/
+.mt-15 {
+    margin-top: 25px;
+}
+.details-text-area {
+    h3 {
+        margin-top: 28px;
+        margin-bottom: 12px;
+        font: {
+            size: 24px;
+            weight: 700;
+        };
+    }
+    ul {
+        margin: 0 0px 5px;
+        li {
+            margin-bottom: 15px;
+            font: {
+                size: 15px;
+                weight: 500;
+                family: var(--fontFamily2);
+            };
+        }
+    }
+}
+.details-map-area {
+    width: 100%;
+    height: 500px;
+    .d-map {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/*================================================
+Sidebar Area CSS
+=================================================*/
+.sidebar-card {
+    padding: 25px;
+    box-shadow: var(--boxShadow);
+    background-color: var(--whiteColor);
+    border-radius: 5px;
+    h3 {
+        margin-bottom: 20px;
+        font: {
+            size: var(--card-title-fontSize);
+            weight: 600;
+        };
+    }
+    p {
+        margin-bottom: 18px;
+    }
+}
+.sidebar-area {
+    &.events-details-sidebar {
+        h3 {
+            margin-bottom: 12px;
+        }
+        .event-info-card {
+            h5 {
+                margin-bottom: 3px;
+            }
+        }
+    }
+}
+.event-info-card {
+    margin-top: 20px;
+    position: relative;
+    padding-left: 35px;
+
+    i {
+        color: var(--mainColor);
+        position: absolute;
+        left: 0;
+        top: 1.2px;
+        font-size: 25px;
+    }
+    h5 {
+        margin-bottom: 8px;
+        font: {
+            size: 16px;
+            weight: 600;
+        };
+    }
+    span {
+        color: var(--paragraphColor);
+        font: {
+            size: 15px;
+            family: var(--fontFamily2);
+        };
+    }
+}
+.search-box{
+    .input-group{
+        border: 1px solid #eeeeee;
+        border-radius: 0px;
+    }
+    .form-control{
+        background-color: var(--whiteColor);
+        border: 0px;
+        padding: 10px;
+        border-radius: 0px;
+    }
+    .btn{
+        border-radius: 0px;
+        color: var(--whiteColor);
+        transition: .5s ease-in-out;
+        background-color: var(--mainColor);
+        &:hover{
+            background-color: var(--blackColor);
+        }
+    }
+}
+.sidebar-category {
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li {
+            margin-top: 12px;
+            i {
+                margin-right: 3px;
+                color: var(--mainColor);
+            }
+            font: {
+                weight: 400;
+                size: 15px;
+                family: var(--fontFamily2);
+            };
+            a {
+                color: var(--paragraphColor); 
+                &:hover {
+                    color: var(--mainColor);
+                }
+            }
+        }
+    }
+}
+.sidebar-tag {
+    ul {
+        margin: -10px 0 0;
+        padding: 0px;
+        list-style: none;
+        li {
+            display: inline-block;
+            a {
+                padding: 5px 15px;
+                border-radius: 5px;
+                display: inline-block;
+                border: 1px solid #eeeeee;
+                background-color: var(--whiteColor);
+                font: {
+                    size: 14px;
+                    family: var(--fontFamily2);
+                };
+                margin: {
+                    right: 5px;
+                    top: 10px;
+                };
+                &:hover {
+                    color: var(--whiteColor);
+                    background-color: var(--mainColor);
+                }
+            }
+        }
+    }
+}
+
+/*================================================
+Inner Projects Area CSS
+=================================================*/
+.service-card-4 {
+    margin-top: 30px;
+    position: relative;
+    &::before {
+        content: '';
+        width: 100%;
+        height: 0%;
+        transition: .5s ease-in-out;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 0;
+    }
+    .service-card-4-text {
+        opacity: 0;
+        transition: .5s ease-in-out;
+        padding: 0px 25px 25px 0px;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        span {
+            color: var(--mainColor);
+            display: inline-block;
+            margin-bottom: 8px;
+            font: {
+                size: 15px;
+                weight: 600;
+                family: var(--fontFamily2);
+            };
+        }
+        h5 {
+            margin-bottom: 0px;
+            font: {
+                size: 20px;
+                weight: 600;
+            };
+            a {
+                color: var(--whiteColor); 
+                &:hover {
+                    color: var(--mainColor);
+                }
+            }
+        }
+    }
+    &:hover {
+        &::before {
+            height: 100%;
+        }
+        .service-card-4-text {
+            opacity: 1;
+            padding-left: 25px;
+            transition-delay: .3s;
+        }
+    }
+}
+
+
+/*================================================ 
+Blog Details Page CSS
+=================================================*/
+.recent-news-card{
+    margin-top: 20px;
+    min-height: 90px;
+    position: relative;
+    padding-left: 105px;
+    img{
+        position: absolute;
+        left: 0;
+        border-radius: 5px;
+    }
+    h5{
+        line-height: 1.4;
+        padding-top: 5px;
+        margin-bottom: 8px;
+        font: {
+            weight: 600;
+            size: 16px !important;
+            size: var(--fontSize);
+        };
+    }
+    p{
+        font-size: 14px;
+
+    }
+}
+.blog-text-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-radius: 0px;
+    padding: 3px 15px 15px 15px;
+    background-color: #f9fafb;
+    ul{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li{
+            display: inline-block;
+            span{
+                font-weight: 600;
+                margin-right: 10px;
+                padding: 0px !important;
+                background-color: transparent !important;
+            }
+        }
+    }
+    .tag-area{
+        margin-top: 12px;
+        ul{
+            li{
+                margin-right: 5px;
+                cursor: pointer;
+                font: {
+                    size: var(--fontSize);
+                    family: var(--fontFamily2);
+                };
+                i{
+                    color: var(--mainColor);
+                }
+                &:hover{
+                    transition: .5s ease-in-out;
+                    color: var(--mainColor);
+                }
+                &:first-child{
+                    padding: 0px;
+                }
+            }
+        }
+    }
+    .social-icons{
+        margin-top: 12px;
+        ul{
+            li{
+                a{  
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    color: var(--mainColor);
+                    background-color: white;
+                    box-shadow: var(--boxShadow);
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    &:hover{
+                        color: var(--whiteColor);
+                        background-color: var(--mainColor);
+                    }
+                }
+            }
+        }
+    }
+}
+.bd-comments{
+    margin-top: 30px;
+    h3{
+        font-size: var(--card-title-fontSize);
+        font-weight: 600;
+    }
+}
+.comment-card{
+    margin-top: 30px;
+    position: relative;
+    padding-left: 90px;
+    img{
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+    }
+    h5{
+        margin-bottom: 0px;
+        font: {
+            weight: 600;
+            size: 18.5px;
+        };
+    }
+    span{
+        color: var(--paragraphColor);
+        margin-bottom: 10px;
+        font: {
+            weight: 400;
+            size: 14px;
+            family: var(--fontFamily);
+        };
+    }
+    p{
+        margin: {
+            top: 10px;
+            bottom: 10px;
+        };
+    }
+    a{
+        color: var(--mainColor);
+        font-weight: 500;
+    }
+}
+.bd-form{
+    margin-top: 30px;
+    border-radius: 0px;
+    background-color: #f9fafb;
+    padding: 30px;
+    h3{
+        font-size: var(--card-title-fontSize);
+        font-weight: 600;
+        margin-top: 0px;
+    }
+    p {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    .form-control{
+        border: 0px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 12px 15px;
+        border-radius: 0px;
+        background-color: var(--whiteColor);
+    }
+    .default-button{
+        margin-top: 15px;
+    }
+}
+.blog-quote {
+    background-color: #f9fafb;
+    padding: 30px 30px 25px;
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    i {
+        font-size: 45px;
+        color: var(--mainColor);
+        position: absolute;
+        top: 50%;
+        left: 30px;
+        transform: translateY(-50%);
+    }
+    p {
+        color: var(--blackColor);
+        max-width: 650px;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        font: {
+            size: 17px;
+            weight: 600;
+        };
+    }
+}
+
+.blog-details-text-area {
+    h3 {
+        margin-bottom: 12px;
+    }
+    .blog-date {
+        margin: {
+            top: 25px;
+            bottom: 0px;
+        };
+        ul {
+            margin: 0px;
+            li {
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+/*================================================ 
+Contact Page CSS
+=================================================*/
+.contact-card {
+    margin-top: 30px;
+    padding: 30px 20px 30px 100px;
+    position: relative;
+    transition: .5s ease-in-out;
+    background-color: var(--whiteColor);
+    box-shadow: var(--boxShadow);
+    i {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--whiteColor);
+        transition: .5s ease-in-out;
+        background-color: var(--mainColor);
+        position: absolute;
+        left: 25px;
+    }
+    h5 {
+        margin-bottom: 12px;
+        font: {
+            size: 20px;
+            weight: 600;
+        };
+    }
+    p {
+        margin-bottom: 0px;
+        a {
+            color: VAR(--paragraphColor);
+        }
+    }
+}
+
+.contact-form-text-area {
+    padding: 30px;
+    background-color: #f9fafb;
+    form{
+        margin-top: 15px;
+        .form-control{
+            padding: 15px 15px;
+            border: 1px solid #eeeeee;
+            margin: 10px 0px;
+        }
+        .default-button{
+            margin-top: 20px;
+            border-radius: 5px;
+            width: 100%;
+        }
+    }
+    .form-check {
+        margin: {
+            top: 10px;
+            bottom: 5px;
+        };
+        .form-check-label {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--paragraphColor);
+
+            a {
+                color: var(--mainColor);
+            }
+        }
+    }
+}
+.google-map{
+    width: 100%;
+    height: 100%;
+    .g-map{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+}
+
+.with-errors {
+    ul {
+        li {
+            color:red;
+        }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 #00aa55b9;
+    }
+    70% {
+        box-shadow: 0 0 0 10px #00aa554f;
+    }
+    100% {
+        box-shadow: 0 0 0 0 #00aa5500;
+    }
+}
