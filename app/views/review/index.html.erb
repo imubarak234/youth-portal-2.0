@@ -49,8 +49,8 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <%= image_tag("apc_logo.png", alt: "Logo", class: "w-100")  %>
+                <a href="/home" class="navbar-brand mx-4 mb-3">
+                    <%= image_tag("APC_Youth_logo_02.png", alt: "Logo", class: "w-100")  %>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -109,7 +109,11 @@
             </nav>
             <!-- Navbar End -->
 
-            <h3>Please review before submitting for verification</h3>
+            <% if current_user.verified %>
+              <h4 class="pb-3">Your are verified</h4>
+            <% else %>
+              <h4 class="pb-3">Please review before submitting for verification</h4>
+            <% end %>
 
               <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
