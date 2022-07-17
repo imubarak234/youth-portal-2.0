@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_17_154834) do
     t.string "senatorial_district"
     t.string "name_of_support_group"
     t.string "membership_status"
+    t.string "group_reach"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 

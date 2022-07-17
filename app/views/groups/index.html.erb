@@ -115,6 +115,7 @@
                         <a href="/groups/<%=@group.id%>/edit">Update</a>
                     </div>
                     <div class="table-responsive">
+
                         <table class="table text-start align-middle table-bordered table-hover mb-0 table-striped table-hover">
                           <thead>
                             <tr class="text-white">
@@ -123,84 +124,646 @@
                               <th scope="col">Entries:</th>
                             </tr>
                           </thead>
-                          <tbody>
-                            <tr>
-                              <td><input class="form-check-input" type="checkbox"></td>
-                              <td scope="row">Group Name</td>
-                              <td><%= @user.name%></td> 
-                            </tr>
-                            <tr>
-                              <td><input class="form-check-input" type="checkbox"></td>
-                              <td scope="row">Email Address</td>
-                              <td><%= @user.email%></td>
-                            </tr>
-                            <tr>
-                              <td><input class="form-check-input" type="checkbox"></td>
-                              <td scope="row">Year of Establishment</td>
-                              <td>
-                                  <% if @group != nil%>
-                                    <%= @group.year_of_establishment %>
-                                  <% else %>
-                                    ...
-                                  <% end %>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td><input class="form-check-input" type="checkbox"></td>
-                              <td scope="row">Nature of Support Group</td>
-                              <td>
-                                  <% if @group != nil%>
-                                    <%= @group.nature_of_support_group %>
-                                  <% else %>
-                                    ...
-                                  <% end %>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td><input class="form-check-input" type="checkbox"></td>
-                              <td scope="row">Mode of Funding</td>
-                              <td>
-                                  <% if @group != nil%>
-                                    <%= @group.mode_of_funding %>
-                                  <% else %>
-                                    ...
-                                  <% end %>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td><input class="form-check-input" type="checkbox"></td>
-                              <td scope="row">Acive Region</td>
-                              <td>
-                                  <% if @group != nil%>
-                                    <%= @group.active_region %>
-                                  <% else %>
-                                    ...
-                                  <% end %>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td><input class="form-check-input" type="checkbox"></td>
-                              <td scope="row">Strength of group(In figures)</td>
-                              <td>
-                                  <% if @group != nil%>
-                                    <%= @group.number_of_members %>
-                                  <% else %>
-                                    ...
-                                  <% end %>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td><input class="form-check-input" type="checkbox"></td>
-                              <td scope="row">Nature of Support Group</td>
-                              <td>
-                                  <% if @group != nil%>
-                                    <%= @group.nature_of_support_group %>
-                                  <% else %>
-                                    ...
-                                  <% end %>
-                              </td>
-                            </tr>
-                          </tbody>
+                          <% if current_user.group_size == "National" %>
+                            <tbody>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Name</td>
+                                <td><%= @group.name_of_support_group%></td> 
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Reach</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.group_reach %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Email Address</td>
+                                <td><%= @user.email%></td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Year of Establishment</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.year_of_establishment %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Nature of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.nature_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Mode of Funding</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.mode_of_funding %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Acive Region</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.active_region %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Strength of group(In figures)</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.number_of_members %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Head Office Address</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.head_office_address %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Zonal Office Address</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.zonal_office_address %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Focus of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.focus_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Membership Status</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.membership_status %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                            </tbody>
+                          <% elsif current_user.group_size == "Senitorial" %>
+                            <tbody>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Name</td>
+                                <td><%= @group.name_of_support_group %></td> 
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Reach</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.group_reach %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Email Address</td>
+                                <td><%= @user.email%></td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Year of Establishment</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.year_of_establishment %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Nature of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.nature_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Mode of Funding</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.mode_of_funding %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">State</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.state %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Strength of group(In figures)</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.number_of_members %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Head Office Address</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.head_office_address %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Senatorial District</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.senatorial_district %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Focus of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.focus_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Membership Status</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.membership_status %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                            </tbody>
+                          <% elsif current_user.group_size == "LGA" %>
+                            <tbody>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Name</td>
+                                <td><%= @group.name_of_support_group %></td> 
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Reach</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.group_reach %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Email Address</td>
+                                <td><%= @user.email%></td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Year of Establishment</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.year_of_establishment %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Nature of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.nature_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Mode of Funding</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.mode_of_funding %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">State</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.state %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Strength of group(In figures)</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.number_of_members %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Head Office Address</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.head_office_address %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Senatorial District</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.senatorial_district %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Focus of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.focus_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Membership Status</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.membership_status %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">LGA</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.lga %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                            </tbody>
+                          <% elsif current_user.group_size == "Regional" %>
+                            <tbody>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Name</td>
+                                <td><%= @group.name_of_support_group %></td> 
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Reach</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.group_reach %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Email Address</td>
+                                <td><%= @user.email%></td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Year of Establishment</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.year_of_establishment %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Nature of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.nature_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Mode of Funding</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.mode_of_funding %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Region Of Operation</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.region_of_operation %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Strength of group(In figures)</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.number_of_members %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Head Office Address</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.head_office_address %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Geo-Political Zone</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.geo_political_zone %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Focus of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.focus_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Membership Status</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.membership_status %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Branch Office</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.branch_offices %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                            </tbody>
+                          <% elsif current_user.group_size == "State" %>
+                            <tbody>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Name</td>
+                                <td><%= @group.name_of_support_group %></td> 
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Group Reach</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.group_reach %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Email Address</td>
+                                <td><%= @user.email%></td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Year of Establishment</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.year_of_establishment %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Nature of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.nature_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Mode of Funding</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.mode_of_funding %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                        
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Strength of group(In figures)</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.number_of_members %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Head Office Address</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.head_office_address %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Geo-Political Zone</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.geo_political_zone %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Focus of Support Group</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.focus_of_support_group %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Membership Status</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.membership_status %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><input class="form-check-input" type="checkbox"></td>
+                                <td scope="row">Branch Office</td>
+                                <td>
+                                    <% if @group != nil%>
+                                      <%= @group.branch_offices %>
+                                    <% else %>
+                                      ...
+                                    <% end %>
+                                </td>
+                              </tr>
+                            </tbody>
+                          <% end %>
+                          
                         </table>
                         
                     </div>
