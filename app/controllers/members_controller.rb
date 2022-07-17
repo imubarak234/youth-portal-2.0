@@ -12,7 +12,7 @@ class MembersController < ApplicationController
   end
 
   def create
-    member_create = Member.new(params.require(:members).permit(:full_name, :member_role, :email, :phone_number, :active_region))
+    member_create = Member.new(params.require(:members).permit(:full_name, :member_role, :email, :phone_number, :active_region, :member_card, :voter_card))
     member_create.update(user_id: current_user.id, group_id: Group.find_by(user_id: current_user.id).id)
 
 

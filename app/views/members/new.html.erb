@@ -195,6 +195,16 @@
                                 </label>
                               </div>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="member_card" class="form-label">Party Membership Card</label>
+                                <%= f.file_field :member_card, class: "form-control", type: "file", id: "member_card" %>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="voter_card" class="form-label">Voter's Card</label>
+                                <%= f.file_field :voter_card, class: "form-control", type: "file", id: "voter_card" %>
+                            </div>
                             
 
                           <div class="d-flex flex-column justify-content-center align-items-start w-100">

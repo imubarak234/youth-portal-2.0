@@ -41,7 +41,14 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="topbar-right-area">
                             <ul>
-                                <li><a href="profile-authentication.html"><i class="fas fa-user"></i> Login</a></li>
+                                <li>
+                                <% if user_signed_in? %>
+                                    <i class="fas fa-user"></i>
+                                    <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
+                                <% else %>
+                                    <a href="/users/sign_in"><i class="fas fa-user"></i> Login</a>
+                                <% end %> 
+                                </li>
                                 <li>
                                     <div class="language-select option-select-area">
                                         <i class="fas fa-globe"></i>
@@ -71,7 +78,7 @@
                         <a href="index.html" class="logo"><%= image_tag("APC_Youth_logo_01.png", class: "w-25")  %></a>
                         <ul class="menu-sidebar menu-small-device">
                             <li><button class="popup-button"><i class="fas fa-search"></i></button></li>
-                            <li><a class="default-button" href="/">Register <i class="fas fa-angle-right"></i></a></li>
+                            <li><a class="default-button" href="/users/sign_up">Register <i class="fas fa-angle-right"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -98,7 +105,7 @@
                             </ul>
                             <div class="menu-sidebar">
                                 <ul>
-                                    <li><a class="default-button" href="#">Register</a></li>
+                                    <li><a class="default-button" href="/users/sign_up">Register</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -126,7 +133,7 @@
                             <h6>Become an Accredited Support Group</h6>
                             <h1>Welcome to APC Youth Wing Support Group Accreditation Program</h1>
                             <p>To Become Accredited Support Group Click on the Button Below</p>
-                            <a class="default-button" href="#">Join Us</a>
+                            <a class="default-button" href="/users/sign_up">Join Us</a>
                         </div>
                     </div>
                     <div class="col-lg-5">

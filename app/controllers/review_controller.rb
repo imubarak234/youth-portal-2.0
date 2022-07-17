@@ -21,9 +21,8 @@ class ReviewController < ApplicationController
       elsif n.member_role == "Legal Advisor"
         count_legal.push(1)
       end
-
-      count_charmain.length > 0 && count_vice.length > 0 && count_secretary.length > 0 && count_legal.length > 0
     end
+    count_charmain.length > 0 && count_vice.length > 0 && count_secretary.length > 0 && count_legal.length > 0
   end
 
   def verified
