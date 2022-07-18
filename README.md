@@ -36,6 +36,7 @@ The youth portal is a fully responsive web application that handles information 
 - HTML/CSS/SCSS
 - Javascript
 - Bootstrap 5.0
+- PostgresSQL
 
 ## Version Control System
 
