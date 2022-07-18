@@ -23,8 +23,21 @@ The youth portal is a fully responsive web application that handles information 
 
 - Navigate to the repository by running `cd Budget-app`.
 
-- Run `yarn install` to install all dependencies
+- Run `npm install` to install all dependencies
 
 - Run `rails db:create`, and `rails db:migrate` to create and migrate your database.
 
 - Run `rails s` and go to http:localhost:3000 to view the app.
+
+## Built With
+
+- Ruby On Rails
+- Ruby Gems
+- HTML/CSS/SCSS
+- Javascript
+- Bootstrap 5.0
+
+## Version Control System
+
+- Git
+- GitHub
