@@ -12,26 +12,27 @@ class ReviewController < ApplicationController
     count_legal = []
 
     var.each do |n|
-      if n.member_role == "Chairman"
+      case n.member_role
+      when 'Chairman'
         count_charmain.push(1)
-      elsif n.member_role == "Vice Chairman"
+      when 'Vice Chairman'
         count_vice.push(1)
-      elsif n.member_role == "General Secretary"
+      when 'General Secretary'
         count_secretary.push(1)
-      elsif n.member_role == "Legal Advisor"
+      when 'Legal Advisor'
         count_legal.push(1)
       end
     end
-    count_charmain.length > 0 && count_vice.length > 0 && count_secretary.length > 0 && count_legal.length > 0
+    count_charmain.length.positive? && count_vice.length.positive? && count_secretary.length.positive? && count_legal.length.positive?
   end
 
   def verified
     if is_verified
       current_user.update(verified: true)
-      flash[:notice] = "Group is verified"
+      flash[:notice] = 'Group is verified'
       redirect_to dashboard_path
     else
-      flash[:notice] = "Group not verfied"
+      flash[:notice] = 'Group not verfied'
       redirect_to review_path
     end
   end

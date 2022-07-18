@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
@@ -29,7 +27,7 @@ class Users::SessionsController < Devise::SessionsController
     set_flash_message! :notice, :signed_out if signed_out
     yield if block_given?
     # respond_to_on_destroy
-    flash[:notice] = "Logged Out"
+    flash[:notice] = 'Logged Out'
     redirect_to home_path
   end
 
