@@ -257,7 +257,6 @@
             </div>
 
             <% if current_user.verified == false || current_user.verified == nil %>
-              <button type="button" class="btn btn-primary m-3"><i class="fal fa-clipboard-check me-2"></i>Verify Group</button>
               <%= button_to 'Verify Group', verified_path, method: :get, remote: true, class: 'btn btn-primary m-3'  %>
             <% end %>
             <!-- Footer Start -->

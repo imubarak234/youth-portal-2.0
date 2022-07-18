@@ -1,4 +1,5 @@
 class ReviewController < ApplicationController
+  before_action :authenticate_user!
   def index
     @group = Group.find_by(user: current_user)
     @member = Member.where(user: current_user)
