@@ -12,9 +12,9 @@ class MembersController < ApplicationController
   end
 
   def create
-    member_create = Member.new(params.require(:members).permit(:full_name, :member_role, :email, :phone_number, :active_region, :member_card, :voter_card))
+    member_create = Member.new(params.require(:members).permit(:full_name, :member_role, :email, :phone_number,
+                                                               :active_region, :member_card, :voter_card))
     member_create.update(user_id: current_user.id, group_id: Group.find_by(user_id: current_user.id).id)
-
 
     respond_to do |format|
       format.html do
@@ -36,15 +36,16 @@ class MembersController < ApplicationController
 
   def update
     @member_edit = Member.find(params[:id])
-    @member_edit.update(full_name: params[:member][:full_name], member_role: params[:member][:member_role], email: params[:member][:email], phone_number: params[:member][:phone_number], active_region: params[:member][:active_region])
-    flash[:notice] = "Updated"
+    @member_edit.update(full_name: params[:member][:full_name], member_role: params[:member][:member_role],
+                        email: params[:member][:email], phone_number: params[:member][:phone_number], active_region: params[:member][:active_region])
+    flash[:notice] = 'Updated'
     redirect_to members_path
   end
 
-  def destroy 
+  def destroy
     member_destroy = Member.find(params[:id])
-    member_destroy.destroy 
-    flash[:notice] = "Member succesfully deleted"
+    member_destroy.destroy
+    flash[:notice] = 'Member succesfully deleted'
     redirect_to dashboard_path
   end
 end
