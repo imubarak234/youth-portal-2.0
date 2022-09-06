@@ -1,6 +1,6 @@
 # Youth Portal
 
-The youth portal is a fully responsive web application that handles information gathering and manipulation of data provided by the users.
+The youth portal is a fully responsive membership web application that handles information gathering and manipulation of data provided by the users and allows user access to some of this data.
 
 ## Live Demo 
 
