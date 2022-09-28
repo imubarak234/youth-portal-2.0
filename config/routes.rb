@@ -21,4 +21,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :show]
   resources :members
   resources :groups
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do 
+      post '/emails', to: 'emails#create'
+    end
+  end
 end
