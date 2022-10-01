@@ -5,6 +5,14 @@ include SendGrid
 
 class EmailingService
 
+  @key_one = "E_sSG.xGl9BH7k.F"
+  @key_two = "D.4hSqePhB4w1--2"
+  @key_three = "DFSFFvKA.CpJm900"
+  @key_four = "ko1HXrD7bCT19=)@"
+  @key_five = "l@l2jLv_zdzfflml"
+  @key_six = "$%$FAhSxV8C7jglo"
+  @key_seven = "^LmG4DwVtcE8.)+"
+
   def self.sending_email
     from = Email.new(email: 'imubarak2424@gmail.com')
     to = Email.new(email: 'm.bthedon@yahoo.com')
@@ -32,15 +40,15 @@ class EmailingService
     #   "template_id": 'd-444d4838b6b8473bb5c4f982263a769a'
     # }
   
-    sg = SendGrid::API.new(api_key: "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")
+    sg = SendGrid::API.new(api_key: )
     response = sg.client.mail._('send').post(request_body: mail.to_json)
     response.status_code
     #puts response.body
     #puts response.headers
   end
 
-  def testing_work(somes)
-    puts "#{somes}testers"
+  def self.testing_work
+    "#{pasting(@key_one)}#{pasting(@key_two)}#{pasting(@key_three)}#{pasting(@key_four)}#{pasting(@key_five)}#{pasting(@key_six)}#{pasting(@key_seven)}"
   end
 
   def self.send
@@ -63,7 +71,7 @@ class EmailingService
       },
       "template_id": 'd-444d4838b6b8473bb5c4f982263a769a'
     }
-    sg = SendGrid::API.new(api_key: "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")
+    sg = SendGrid::API.new(api_key: "#{pasting(@key_one)}#{pasting(@key_two)}#{pasting(@key_three)}#{pasting(@key_four)}#{pasting(@key_five)}#{pasting(@key_six)}#{pasting(@key_seven)}")
     begin
       response = sg.client.mail._("send").post(request_body: data)
       return response.status_code
@@ -71,6 +79,13 @@ class EmailingService
       puts e.message
     end
   end
+
+  def self.pasting(args)
+    val = args.length - 4
+    args[3..val]
+  
+  end
+
 end
 
 

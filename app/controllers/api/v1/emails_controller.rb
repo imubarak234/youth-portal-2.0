@@ -6,9 +6,7 @@ module Api
 
       def create
         render json: { 
-          status: EmailingService.sending_email,
-          status2: EmailingService.send,
-          testing: ENV['SENDGRID_API_KEY']
+          status: EmailingService.send
          } 
 
         #puts "This is the status: #{EmailingService.sending_email}"
