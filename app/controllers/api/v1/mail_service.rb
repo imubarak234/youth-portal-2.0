@@ -5,14 +5,14 @@ include SendGrid
 
 class EmailingService
 
-  @key_one = "E_sSG.xGl9BH7k.F"
-  @key_two = "D.4hSqePhB4w1--2"
-  @key_three = "DFSFFvKA.CpJm900"
-  @key_four = "ko1HXrD7bCT19=)@"
-  @key_five = "l@l2jLv_zdzfflml"
-  @key_six = "$%$FAhSxV8C7jglo"
-  @key_seven = "^LmG4DwVtcE8.)+"
-
+  @key_one = "E_sSG.6h29sZzk.F"
+  @key_two = "D.4VTEWzSwxZW--2"
+  @key_three = "DFSXpScw.5Iab900"
+  @key_four = "ko1WkNvcMnptZ=)@"
+  @key_five = "l@l5Uiv70PR74lml"
+  @key_six = "$%$AcOivT8wMXglo"
+  @key_seven = "^LmFvqKbArsI.)+"
+  
   def self.sending_email
     from = Email.new(email: 'imubarak2424@gmail.com')
     to = Email.new(email: 'm.bthedon@yahoo.com')
