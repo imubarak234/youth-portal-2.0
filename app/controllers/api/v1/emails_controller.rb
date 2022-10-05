@@ -6,7 +6,7 @@ module Api
 
       def create
         render json: { 
-          status: EmailingService.send
+          status: EmailingService.testing_work
          } 
 
         #puts "This is the status: #{EmailingService.sending_email}"
