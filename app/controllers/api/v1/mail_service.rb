@@ -48,7 +48,7 @@ class EmailingService
   end
 
   def self.testing_work
-    "#{pasting(@key_one)}#{pasting(@key_two)}#{pasting(@key_three)}#{pasting(@key_four)}#{pasting(@key_five)}#{pasting(@key_six)}#{pasting(@key_seven)}"
+    "/#{pasting(@key_one)}#{pasting(@key_two)}#{pasting(@key_three)}#{pasting(@key_four)}#{pasting(@key_five)}#{pasting(@key_six)}#{pasting(@key_seven)}/"
   end
 
   def self.send(email, name, category)
