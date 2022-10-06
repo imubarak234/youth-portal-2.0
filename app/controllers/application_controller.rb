@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :update_allowed_parameters, if: :devise_controller?
 
+  def json_payload
+    HashWithIndifferentAccess.new(JSON.parse(request.raw_post))
+  end
+
   protected
 
   def update_allowed_parameters
