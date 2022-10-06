@@ -5,14 +5,14 @@ include SendGrid
 
 class EmailingService
 
-  @key_one = "E_sSG.6h29sZzk.F"
-  @key_two = "D.4VTEWzSwxZW--2"
-  @key_three = "DFSXpScw.5Iab900"
-  @key_four = "ko1WkNvcMnptZ=)@"
-  @key_five = "l@l5Uiv70PR74lml"
-  @key_six = "$%$AcOivT8wMXglo"
-  @key_seven = "^LmFvqKbArsI.)+"
-  
+  @key_one = "E_sSG.6ZlYBgQk.F"
+  @key_two = "D.4VQW-4glyYM--2"
+  @key_three = "DFSCYUVQ.n3Nv900"
+  @key_four = "ko1NmqMj6mCv1=)@"
+  @key_five = "l@lbT9RcTyPOklml"
+  @key_six = "$%$okqe1YQGZ8glo"
+  @key_seven = "^LmGiz_SKrI8.)+"
+
   def self.sending_email
     from = Email.new(email: 'imubarak2424@gmail.com')
     to = Email.new(email: 'm.bthedon@yahoo.com')
@@ -51,25 +51,25 @@ class EmailingService
     "#{pasting(@key_one)}#{pasting(@key_two)}#{pasting(@key_three)}#{pasting(@key_four)}#{pasting(@key_five)}#{pasting(@key_six)}#{pasting(@key_seven)}"
   end
 
-  def self.send
+  def self.send(email, name, category)
     data = {
       "personalizations": [
         {
           "to": [
             {
-              "email": "m.bthedon@yahoo.com"
+              "email": email
             }
           ],
           "dynamic_template_data": {
-            "name": "Mike Jones",
-            "body": "Testing body"
+            "name": name,
+            "category": category
           }
         }
       ],
       "from": {
-        "email": 'imubarak2424@gmail.com'
+        "email": 'digitalnigeria@nitda.gov.ng'
       },
-      "template_id": 'd-444d4838b6b8473bb5c4f982263a769a'
+      "template_id": 'd-3e8098258c3d4124b66e8484a78e9b74'
     }
     sg = SendGrid::API.new(api_key: "#{pasting(@key_one)}#{pasting(@key_two)}#{pasting(@key_three)}#{pasting(@key_four)}#{pasting(@key_five)}#{pasting(@key_six)}#{pasting(@key_seven)}")
     begin
