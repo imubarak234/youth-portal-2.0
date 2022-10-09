@@ -13,39 +13,39 @@ class EmailingService
   @key_six = "$%$okqe1YQGZ8glo"
   @key_seven = "^LmGiz_SKrI8.)+"
 
-  def self.sending_email
-    from = Email.new(email: 'imubarak2424@gmail.com')
-    to = Email.new(email: 'm.bthedon@yahoo.com')
-    subject = 'Sending with SendGrid is Fun'
-    content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
-    mail = Mail.new(from, subject, to, content)
+  # def self.sending_email
+  #   from = Email.new(email: 'imubarak2424@gmail.com')
+  #   to = Email.new(email: 'm.bthedon@yahoo.com')
+  #   subject = 'Sending with SendGrid is Fun'
+  #   content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
+  #   mail = Mail.new(from, subject, to, content)
 
-    # data = {
-    #   "personalizations": [
-    #     {
-    #       "to": [
-    #         {
-    #           "email": too
-    #         }
-    #       ],
-    #       "dynamic_template_data": {
-    #         "name": name,
-    #         "body": body
-    #       }
-    #     }
-    #   ],
-    #   "from": {
-    #     "email": 'imubarak2424@gmail.com'
-    #   },
-    #   "template_id": 'd-444d4838b6b8473bb5c4f982263a769a'
-    # }
+  #   data = {
+  #     "personalizations": [
+  #       {
+  #         "to": [
+  #           {
+  #             "email": too
+  #           }
+  #         ],
+  #         "dynamic_template_data": {
+  #           "name": name,
+  #           "body": body
+  #         }
+  #       }
+  #     ],
+  #     "from": {
+  #       "email": 'imubarak2424@gmail.com'
+  #     },
+  #     "template_id": 'd-444d4838b6b8473bb5c4f982263a769a'
+  #   }
   
-    sg = SendGrid::API.new(api_key: )
-    response = sg.client.mail._('send').post(request_body: mail.to_json)
-    response.status_code
-    #puts response.body
-    #puts response.headers
-  end
+  #   sg = SendGrid::API.new(api_key: )
+  #   response = sg.client.mail._('send').post(request_body: mail.to_json)
+  #   response.status_code
+  #   #puts response.body
+  #   #puts response.headers
+  # end
 
   def self.testing_work
     "/#{pasting(@key_one)}#{pasting(@key_two)}#{pasting(@key_three)}#{pasting(@key_four)}#{pasting(@key_five)}#{pasting(@key_six)}#{pasting(@key_seven)}/"
