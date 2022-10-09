@@ -8,9 +8,9 @@ module Api
       def create
 
         data = json_payload.select { |k| ALLOWED_DATA.include?(k) }
-        ans = EmailingService.send(data["email"], data["name"], data["category"])
+        #ans = EmailingService.send(data["email"], data["name"], data["category"])
 
-        render json: { response_status: ans }
+        #render json: { response_status: ans }
        
         #puts "This is the status: #{EmailingService.sending_email}"
         #render json: { response: res }
